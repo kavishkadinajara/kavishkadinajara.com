@@ -38,11 +38,17 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={clsx(
           "min-h-screen overflow-x-hidden bg-green-100 dark:bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#150a00] via-[#00150e] to-black overflow-auto",
           fontSans.variable,
+          "font-poppins", // Add this line to apply the font globally
         )}
       >
         <Vortex

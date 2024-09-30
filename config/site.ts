@@ -1,69 +1,65 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Kavishka Dinajara",
+  description: "",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Blogs",
+      href: "https://dev.to/kavishka_dinajara_88",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "About me",
+      href: "/#aboutme",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Resume",
+      href: "/#resume",
     },
     {
-      label: "About",
-      href: "/about",
+      label: "Work",
+      href: "/#work",
+    },
+    {
+      label: "Contact",
+      href: "/#contact",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Blogs",
+      href: "https://dev.to/kavishka_dinajara_88",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "About me",
+      href: "/#aboutme",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Resume",
+      href: "/#resume",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
+      label: "Work",
+      href: "/#work",
     },
     {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Contact",
+      href: "/#contact",
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
+    github: "https://github.com/kavishkadinajara",
+    twitter: "https://x.com/dinajara44888",
     docs: "https://nextui.org",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    sponsor: "#contact",
   },
 };
