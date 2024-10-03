@@ -5,20 +5,12 @@ export const siteConfig = {
   description: "",
   navItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "Blogs",
       href: "https://dev.to/kavishka_dinajara_88",
     },
     {
-      label: "About me",
+      label: "About",
       href: "/#aboutme",
-    },
-    {
-      label: "Resume",
-      href: "/#resume",
     },
     {
       label: "Work",
@@ -31,20 +23,12 @@ export const siteConfig = {
   ],
   navMenuItems: [
     {
-      label: "Home",
-      href: "/",
-    },
-    {
       label: "Blogs",
       href: "https://dev.to/kavishka_dinajara_88",
     },
     {
-      label: "About me",
-      href: "/#aboutme",
-    },
-    {
-      label: "Resume",
-      href: "/#resume",
+      label: "About",
+      href: "/about",
     },
     {
       label: "Work",
