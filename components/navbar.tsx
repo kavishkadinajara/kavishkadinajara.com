@@ -27,7 +27,7 @@ export const Navbar = () => {
     <SparklesPreview>
       <motion.div
         animate={{ opacity: 2, y: 0 }}
-        className="z-50 fixed top-0 left-0 right-0 opacity-0 bg-[#00000068]"
+        className="z-50 fixed top-0 left-0 right-0 opacity-0 bg-[#031908a8]"
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1.5 }}
       >
