@@ -5,9 +5,7 @@ export default function AboutLayout({
 }) {
   return (
     <section className="">
-      <div className="inline-block max-w-lg text-center justify-center">
-        {children}
-      </div>
+      <div className="">{children}</div>
     </section>
   );
 }

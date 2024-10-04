@@ -43,16 +43,16 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen overflow-x-hidden bg-green-100 dark:bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#0a0015] via-[#000c05] to-black overflow-auto",
+          "min-h-screen overflow-x-hidden bg-green-100 dark:bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#0a0015] via-[#00150e] to-black overflow-auto",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col">
             <Navbar />
-            <SparklesPreview>
+            {/* <SparklesPreview> */}
             <main className="">{children}</main>
-            </SparklesPreview>
+            {/* </SparklesPreview> */}
           </div>
         </Providers>
       </body>

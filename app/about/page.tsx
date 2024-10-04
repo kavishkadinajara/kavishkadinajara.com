@@ -1,88 +1,92 @@
 "use client";
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
+import React from "react";
 
-export default function AboutPage() {
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+
+export default function AppleCardsCarouselDemo() {
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} layout={true} />
+  ));
+
   return (
-    <section className="relative py-12 px-4 lg:py-16 lg:px-8 text-white ">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-        {/* Text Section */}
-        <motion.div
-          animate={{ opacity: 1, x: 0 }}
-          className="space-y-6 lg:space-y-8"
-          initial={{ opacity: 0, x: -50 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-teal-400 font-bold text-lg sm:text-xl lg:text-2xl">
-            ABOUT ME
-          </h2>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
-            WHO <span className="text-teal-400">AM</span> I?
-          </h1>
-          <p className="text-gray-400 text-sm sm:text-base lg:text-lg leading-relaxed">
-            Hey there! 👋 I&apos;m Kavishka Dinajara...
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Feature 1 */}
-            <motion.div
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-teal-400">{/* Icon */}</div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold">Clean Code</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  I believe in writing efficient...
-                </p>
-              </div>
-            </motion.div>
-            {/* Feature 2 */}
-            <motion.div
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-teal-400">{/* Icon */}</div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold">Modern Design</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  I create sleek, responsive, modern designs...
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Image Section with Swiper */}
-        <motion.div
-          animate={{ opacity: 1, x: 0 }}
-          className="relative flex justify-center items-center"
-          initial={{ opacity: 0, x: 50 }}
-          transition={{ duration: 1 }}
-        >
-          <Swiper
-            autoplay={{ delay: 4000 }}
-            className="rounded-xl overflow-hidden shadow-xl"
-            loop={true}
-            modules={[Pagination, Autoplay]}
-            pagination={{ clickable: true, dynamicBullets: true }}
-            spaceBetween={30}
-          >
-            <SwiperSlide>
-              <Image alt="alt" height={100} src="/me.jpg" width={100} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image alt="alt" height={100} src="/configme.jpg" width={100} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image alt="alt" height={100} src="/me.jpg" width={100} />
-            </SwiperSlide>
-          </Swiper>
-        </motion.div>
-      </div>
-    </section>
+    <div className="w-full h-full py-20">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+        Get to know your iSad.
+      </h2>
+      <Carousel items={cards} />
+    </div>
   );
 }
+
+const DummyContent = () => {
+  return (
+    <>
+      {[...new Array(3).fill(1)].map((_, index) => {
+        return (
+          <div
+            key={"dummy-content" + index}
+            className="bg-[#F5F5F7] p-8 md:p-14 rounded-3xl mb-4"
+          >
+            <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+              <span className="font-bold text-neutral-700">
+                The first rule of Apple club is that you boast about Apple club.
+              </span>{" "}
+              Keep a journal, quickly jot down a grocery list, and take amazing
+              class notes. Want to convert those notes to text? No problem.
+              Langotiya jeetu ka mara hua yaar is ready to capture every
+              thought.
+            </p>
+            <Image
+              alt="Macbook mockup from Aceternity UI"
+              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+              height="500"
+              src="https://assets.aceternity.com/macbook.png"
+              width="500"
+            />
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+const data = [
+  {
+    category: "Artificial Intelligence",
+    title: "You can do more with AI.",
+    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Productivity",
+    title: "Enhance your productivity.",
+    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Product",
+    title: "Launching the new Apple Vision Pro.",
+    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+
+  {
+    category: "Product",
+    title: "Maps for your iPhone 15 Pro Max.",
+    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "iOS",
+    title: "Photography just got better.",
+    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+  {
+    category: "Hiring",
+    title: "Hiring for a Staff Software Engineer",
+    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    content: <DummyContent />,
+  },
+];

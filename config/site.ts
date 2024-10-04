@@ -14,7 +14,7 @@ export const siteConfig = {
     },
     {
       label: "Work",
-      href: "/#work",
+      href: "/my_projects",
     },
     {
       label: "Contact",
