@@ -1,15 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faPencilRuler } from "@fortawesome/free-solid-svg-icons";
 
 import { SparklesPreview } from "./SparklesPreview";
 import Skills from "./Skills";
+
+import { ParallaxScrollSecondDemo } from "@/components/ParallaxScrollSecondDemo";
 
 const AboutMe = () => {
   return (
@@ -96,7 +96,7 @@ const AboutMe = () => {
             initial={{ opacity: 0, x: 50 }}
             transition={{ duration: 1 }}
           >
-            <Swiper
+            {/* <Swiper
               autoplay={{ delay: 4000 }}
               className="rounded-xl overflow-hidden shadow-xl"
               loop={true}
@@ -125,7 +125,8 @@ const AboutMe = () => {
                   src="/aboutme/bgr2.png"
                 />
               </SwiperSlide>
-            </Swiper>
+            </Swiper> */}
+            <ParallaxScrollSecondDemo />
           </motion.div>
         </div>
       </section>
