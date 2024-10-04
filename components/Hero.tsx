@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <SparklesPreview>
-      <section className="min-h-screen flex flex-col justify-center items-center text-white px-4 mt-32 md:mt-12 md:px-8 lg:px-24 z-0">
+      <section className="min-h-screen flex flex-col justify-center items-center text-white px-4 mt-32 md:mt-12 md:px-8 lg:px-24 z-20">
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0 lg:space-x-8">
           {/* Left Section: Text */}
           <motion.div

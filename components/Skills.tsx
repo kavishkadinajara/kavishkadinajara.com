@@ -257,7 +257,7 @@ export default function ProfileDetails() {
 
   return (
     <div className="flex w-full justify-center items-center flex-col p-6 shadow-md rounded-lg">
-      <h1 className="text-center text-xl md:text-3xl dark:text-gray-100 text-gray-900 font-bold mb-6">
+      <h1 className="text-center text-xl md:text-3xl text-cyan-600 font-bold mb-6">
         My Profile
       </h1>
       <Tabs aria-label="Profile Details tabs" size="lg" variant="underlined">
