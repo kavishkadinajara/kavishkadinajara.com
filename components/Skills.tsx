@@ -103,16 +103,16 @@ const skills: Skill[] = [
   //   icon: "https://cdn.iconscout.com/icon/free/png-512/spring-3-1175253.png", // PNG format
   //   level: "Intermediate",
   // },
-  {
-    name: "Azure",
-    icon: "https://cdn-icons-png.flaticon.com/512/732/732221.png", // PNG format
-    level: "Intermediate",
-  },
-  {
-    name: "DigitalOcean",
-    icon: "https://github.com/user-attachments/assets/f3bee16b-3609-489f-9445-d08c0a52468b", // PNG format
-    level: "Intermediate",
-  },
+  // {
+  //   name: "Azure",
+  //   icon: "https://cdn-icons-png.flaticon.com/512/732/732221.png", // PNG format
+  //   level: "Intermediate",
+  // },
+  // {
+  //   name: "DigitalOcean",
+  //   icon: "https://github.com/user-attachments/assets/f3bee16b-3609-489f-9445-d08c0a52468b", // PNG format
+  //   level: "Intermediate",
+  // },
   {
     name: "MySQL",
     icon: "/mysql-2.svg", // PNG format
