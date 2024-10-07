@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // import { EmailTemplate } from '../../../components/EmailTemplate';
 import { NextResponse, NextRequest } from "next/server";
 import { z } from "zod";
@@ -70,8 +71,8 @@ export async function POST(req: NextRequest) {
 
     const clientMsg = {
       to: { name: name, email: email },
-      from: { name: "Supun Sathsara", email: "no-reply@supunsathsara.com" },
-      replyTo: "contact@supunsathsara.com",
+      from: { name: "Kavishka Dinajara", email: "kavishkadinajara@gmail.com" },
+      replyTo: "kaviskadinajara2@gmail.com",
       subject: `Thank you for contacting me`,
       text: "I received your message and I will get back to you as soon as possible.",
       html: `
@@ -97,7 +98,7 @@ export async function POST(req: NextRequest) {
                   <p>I will review your message and get back to you as soon as possible.</p>
               </div>
               <p>Best Regards,</p>
-              <p>Supun Sathsara</p>
+              <p>Kavishka Dinajara</p>
               <p class="signature">[Automated Message: Please do not reply to this email]</p>
           </div>
       </body>

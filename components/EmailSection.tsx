@@ -1,14 +1,6 @@
 /* eslint-disable no-console */
 "use client";
-
 import { useRef, useState, FormEvent } from "react";
-import GithubIcon from "@public/github-icon.svg";
-import LinkedinIcon from "@public/linkedin-icon.svg";
-import XIcon from "@public/x-icon.svg";
-import InstaIcon from "@public/instagram-icon.svg";
-import Link from "next/link";
-import Image from "next/image";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-hot-toast";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 
