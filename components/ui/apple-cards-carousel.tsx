@@ -202,7 +202,7 @@ export const Card = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 h-screen z-50 overflow-auto">
+          <div className="fixed inset-0 h-screen z-50 overflow-auto bg-[#0000006a]">
             <motion.div
               animate={{ opacity: 1 }}
               className="bg-black/80 backdrop-blur-lg h-full w-full fixed inset-0"
@@ -286,7 +286,7 @@ export const BlurImage = ({
       alt={alt ? alt : "Background of a beautiful view"}
       blurDataURL={typeof src === "string" ? src : undefined}
       className={cn(
-        "transition duration-300",
+        "transition duration-300 opacity-40",
         isLoading ? "blur-sm" : "blur-0",
         className,
       )}

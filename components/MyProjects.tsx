@@ -59,12 +59,12 @@ const DummyContent: React.FC<DummyContentProps> = ({
   return (
     <motion.div
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-[#F5F5F7] p-6 sm:p-8 md:p-14 rounded-3xl mb-4 shadow-lg w-full max-w-4xl mx-auto"
+      className="bg-[#22879e3a] hover:bg-[#22883641] p-6 sm:p-8 md:p-14 rounded-3xl mb-4 shadow-lg w-full max-w-screen mx-auto "
       initial={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5 }}
     >
-      <p className="text-neutral-600 text-sm md:text-base lg:text-xl font-sans max-w-3xl mx-auto">
-        <span className="font-bold text-neutral-700">Description:</span>{" "}
+      <p className="text-neutral-400 text-sm md:text-base lg:text-xl font-sans max-w-3xl mx-auto">
+        <span className="font-bold text-neutral-50">Description:</span>{" "}
         {description}
       </p>
 
@@ -72,7 +72,7 @@ const DummyContent: React.FC<DummyContentProps> = ({
         {/* YouTube Demo and GitHub Code Icons */}
         <DemoView youtubeLink={youtubeLink} />
         <a
-          className="text-gray-700 hover:text-gray-900 text-2xl"
+          className="text-gray-100 hover:text-black text-2xl"
           href={githubLink}
           rel="noopener noreferrer"
           target="_blank"
@@ -88,18 +88,18 @@ const DummyContent: React.FC<DummyContentProps> = ({
 // Define your data with types
 const data: Project[] = [
   {
-    category: "Artificial Intelligence",
-    title: "AI-powered Traffic Optimization",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "E-Commerce Web Application",
+    title: "DDN Mobile",
+    src: "/projects/ddn.jpg",
     description:
       "An AI-based system for optimizing traffic light operations using real-time data and image processing.",
-    youtubeLink: "https://www.youtube.com/embed/example1", // Use embed link
-    githubLink: "https://github.com/username/project1",
+    youtubeLink: "https://www.youtube.com/embed/CkGYp5a5HjE?si=pDOMwm6AW_R2SXqj", // Use embed link
+    githubLink: "https://github.com/kavishkadinajara/DDN-Mobile",
     content: (
       <DummyContent
         description="An AI-based system for optimizing traffic light operations using real-time data and image processing."
-        githubLink="https://github.com/username/project1"
-        youtubeLink="https://www.youtube.com/embed/example1"
+        githubLink="https://github.com/kavishkadinajara/DDN-Mobile"
+        youtubeLink="https://www.youtube.com/embed/CkGYp5a5HjE?si=pDOMwm6AW_R2SXqj"
       />
     ),
   },

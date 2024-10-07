@@ -21,7 +21,7 @@ const DemoView: React.FC<DemoViewProps> = ({ youtubeLink }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 w-full">
         <a
           className="text-red-500 hover:text-red-700 text-2xl"
           href={youtubeLink}
@@ -42,9 +42,11 @@ const DemoView: React.FC<DemoViewProps> = ({ youtubeLink }) => {
       </div>
 
       <Modal
+        size="lg" // Increased modal size
         backdrop={backdrop}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
+        className="max-w-5xl" // Optional: further limit modal size if needed
       >
         <ModalContent>
           <>
@@ -58,7 +60,7 @@ const DemoView: React.FC<DemoViewProps> = ({ youtubeLink }) => {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   className="rounded-lg shadow-md"
                   frameBorder="0"
-                  height="315"
+                  height="480" // Increased height for larger view
                   src={youtubeLink}
                   title="YouTube video player"
                   width="100%"

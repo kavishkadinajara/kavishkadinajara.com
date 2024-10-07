@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import { SparklesPreview } from "@/components/SparklesPreview";
 import MyProjects from "@/components/MyProjects";
+import EmailSection from "@/components/EmailSection";
 
 export default function Home() {
   return (
@@ -10,13 +11,17 @@ export default function Home() {
         <Hero />
       </SparklesPreview>
 
-      {/* <SparklesPreview> */}
+      <SparklesPreview>
         <AboutMe />
-      {/* </SparklesPreview> */}
+      </SparklesPreview>
 
-      {/* <SparklesPreview> */}
+      <SparklesPreview>
         <MyProjects />
-      {/* </SparklesPreview> */}
+      </SparklesPreview>
+
+      <SparklesPreview>
+        <EmailSection />
+      </SparklesPreview>
     </section>
   );
 }

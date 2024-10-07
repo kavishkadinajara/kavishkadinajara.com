@@ -54,7 +54,7 @@ export default function RootLayout({
             {/* <SparklesPreview> */}
             <main className="">{children}</main>
             {/* </SparklesPreview> */}
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </Providers>
       </body>
