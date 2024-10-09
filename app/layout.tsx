@@ -8,7 +8,6 @@ import "@/styles/scrollbar.css";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { SparklesPreview } from "@/components/SparklesPreview";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/Footer";
 
