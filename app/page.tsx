@@ -15,13 +15,13 @@ export default function Home() {
         <AboutMe />
       </SparklesPreview>
 
-      <SparklesPreview>
+      {/* <SparklesPreview> */}
         <MyProjects />
-      </SparklesPreview>
+      {/* </SparklesPreview> */}
 
-      <SparklesPreview>
+      {/* <SparklesPreview> */}
         <EmailSection />
-      </SparklesPreview>
+      {/* </SparklesPreview> */}
     </section>
   );
 }

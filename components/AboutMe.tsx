@@ -15,7 +15,7 @@ const AboutMe = () => {
   return (
     <SparklesPreview>
       <section
-        className="pt-12 px-4 lg:py-16 lg:px-8 text-white z-20"
+        className="pt-12 px-4 lg:py-16 lg:px-8 text-white z-30"
         id="aboutme"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">

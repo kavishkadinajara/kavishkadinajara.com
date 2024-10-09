@@ -24,7 +24,7 @@ export default function MyProjects() {
   return (
     <motion.div
       animate={{ opacity: 1 }}
-      className="w-full h-full py-10 md:py-20 overflow-x-hidden"
+      className="w-full h-full py-10 md:py-20 overflow-x-hidden z-30"
       id="my_projects"
       initial={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
