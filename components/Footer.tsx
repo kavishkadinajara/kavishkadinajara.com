@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "@nextui-org/link";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 import { siteConfig } from "@/config/site";
 import { GithubIcon } from "@/components/icons";
@@ -17,10 +16,10 @@ const Footer = () => {
               <Link className="block mb-2" href="/">
                 <p className="font-bold text-2xl">
                   <span className="dark:text-green-500 text-green-700">
-                    Tea
+                    Kavishka &nbsp;
                   </span>
                   <span className="dark:text-lime-700 text-lime-900">
-                    Bridge
+                    Dinajara
                   </span>
                 </p>
               </Link>
@@ -30,18 +29,24 @@ const Footer = () => {
             {/* Copyright Text */}
             <div>
               <p className="text-sm">
-                Copyright © 2024 | TEA-BRIDGE. All Rights Reserved.
+                Copyright © 2024 | All Rights Reserved.
               </p>
             </div>
 
             {/* Links and Social Icons */}
             <div className="flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
               <div className="text-sm">
-                <Link className="hover:underline" href="/privacy&policy">
+                <Link
+                  className="text-cyan-300 hover:text-green-300"
+                  href="/privacy&policy"
+                >
                   Privacy Policy
                 </Link>{" "}
                 |
-                <Link className="hover:underline mx-2" href="/terms">
+                <Link
+                  className="text-cyan-300 hover:text-green-300 mx-2"
+                  href="/terms"
+                >
                   Terms of Service
                 </Link>
                 |<span className="ml-2">Status 🟢</span>

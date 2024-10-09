@@ -16,11 +16,11 @@ export default function Home() {
       </SparklesPreview>
 
       {/* <SparklesPreview> */}
-        <MyProjects />
+      <MyProjects />
       {/* </SparklesPreview> */}
 
       {/* <SparklesPreview> */}
-        <EmailSection />
+      <EmailSection />
       {/* </SparklesPreview> */}
     </section>
   );
