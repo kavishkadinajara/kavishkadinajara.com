@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 import { FaGithub } from "react-icons/fa"; // Import icons
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+
+import { Card, Carousel } from "@/components/ui/apple-cards-carousel";
 import DemoView from "@/components/DemoView";
 
 // Define types for `data`
@@ -92,45 +93,47 @@ const data: Project[] = [
     title: "DDN Mobile",
     src: "/projects/ddn.jpg",
     description:
-      "An AI-based system for optimizing traffic light operations using real-time data and image processing.",
-    youtubeLink: "https://www.youtube.com/embed/CkGYp5a5HjE?si=pDOMwm6AW_R2SXqj", // Use embed link
+      "E-commerce website for mobile shop with user authentication, product browsing, shopping cart, and secure checkout features.",
+    youtubeLink:
+      "https://www.youtube.com/embed/CkGYp5a5HjE?si=pDOMwm6AW_R2SXqj", // Use embed link
     githubLink: "https://github.com/kavishkadinajara/DDN-Mobile",
     content: (
       <DummyContent
-        description="An AI-based system for optimizing traffic light operations using real-time data and image processing."
+        description="E-commerce website for mobile shop with user authentication, product browsing, shopping cart, and secure checkout features."
         githubLink="https://github.com/kavishkadinajara/DDN-Mobile"
         youtubeLink="https://www.youtube.com/embed/CkGYp5a5HjE?si=pDOMwm6AW_R2SXqj"
       />
     ),
   },
   {
-    category: "Productivity",
-    title: "Task Manager App",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Ticket Management Platform",
+    title: "EVENTURE",
+    src: "/projects/eventure.png",
     description:
-      "A mobile app to manage daily tasks with offline syncing and productivity tracking features.",
-    youtubeLink: "https://www.youtube.com/embed/example2",
-    githubLink: "https://github.com/username/project2",
+      "Eventure is an event ticket management platform designed to streamline the process of creating, managing, and selling tickets for events.",
+    youtubeLink:
+      "https://www.youtube.com/embed/rAJcblX_2_Q?si=WSty9FD1OKlh7Ypj",
+    githubLink: "https://github.com/kavishkadinajara/iwb325-phoenix-code",
     content: (
       <DummyContent
-        description="A mobile app to manage daily tasks with offline syncing and productivity tracking features."
-        githubLink="https://github.com/username/project2"
-        youtubeLink="https://www.youtube.com/embed/example2"
+        description="Eventure is an event ticket management platform designed to streamline the process of creating, managing, and selling tickets for events."
+        githubLink="https://github.com/kavishkadinajara/iwb325-phoenix-code"
+        youtubeLink="https://www.youtube.com/embed/rAJcblX_2_Q?si=WSty9FD1OKlh7Ypj"
       />
     ),
   },
   {
-    category: "Product",
-    title: "Fertilizer Application Tool",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Realtime Platform For Tea Industry",
+    title: "TeaBridge",
+    src: "/projects/TeaBridge.png",
     description:
       "A web-based tool for applying fertilizers with calculated costs and scheduling features.",
     youtubeLink: "https://www.youtube.com/embed/example3",
-    githubLink: "https://github.com/username/project3",
+    githubLink: "https://github.com/kavishkadinajara/tea-bridge",
     content: (
       <DummyContent
         description="A web-based tool for applying fertilizers with calculated costs and scheduling features."
-        githubLink="https://github.com/username/project3"
+        githubLink="https://github.com/kavishkadinajara/tea-bridge"
         youtubeLink="https://www.youtube.com/embed/example3"
       />
     ),

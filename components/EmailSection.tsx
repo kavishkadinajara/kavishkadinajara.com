@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-console */
 "use client";
-import { useRef, useState, FormEvent } from "react";
-import { toast } from "react-hot-toast";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
+import { FormEvent, useRef, useState } from "react";
+import { toast } from "react-hot-toast";
 
 // Define the form data type
 interface FormData {
@@ -17,7 +18,7 @@ const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
-  const [status, setStatus] = useState<string>("");
+  const [status, setStatus] = useState<string>(""); // Track the captcha status
   const captchaRef = useRef<TurnstileInstance | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -81,82 +82,38 @@ const EmailSection = () => {
     } finally {
       setIsSending(false);
       setStatus("");
-      captchaRef.current?.reset();
+
+      // Ensure captchaRef is not null before calling reset
+      if (captchaRef.current) {
+        captchaRef.current.reset();
+      }
+
       e.currentTarget.reset(); // Reset the form
     }
   };
 
   return (
     <section
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative z-20"
+      className="grid md:grid-cols-2 px-8 md:px-28 lg:px-40 my-12 md:my-12 py-24 gap-4 relative z-20"
       id="contact"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-[80%] md:-translate-x-1/2 -translate-1/2" />
-      {/* <div className="z-5">
+      <div className="rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-[80%] md:-translate-x-1/2 -translate-1/2" />
+      <div className="z-5">
         <h2 className="text-xl font-bold text-white my-2">
           Let&apos;s Connect
         </h2>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          I love to code and I&apos;m always looking for new opportunities to
-          learn and grow. I&apos;m currently working on a few projects and
-          I&apos;m always open to new ideas and collaborations. If you have any
-          questions or want to work with me, feel free to contact me.
+          "I love to code and I'm always looking for new opportunities to learn
+          and grow. Currently, I'm working on several projects, and I'm always
+          open to fresh ideas and collaborations. If you have any questions or
+          would like to work together, feel free to reach out!".
         </p>
         <p className="text-lg font-semibold my-5 text-white">
-          <EnvelopeIcon className="inline-block mr-2 h-6 w-6 text-white" />
-          <a
-            className="hover:underline"
-            href="mailto:contact@supunsathsara.com"
-          >
-            contact@supunsathsara.com
+          <a className="hover:underline" href="mailto:contact@kavishka.com">
+            contact@kavishka.com
           </a>
         </p>
-        <div className="socials flex flex-row gap-2">
-          <Link
-            href="https://github.com/supunsathsara"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Supun Sathsara on github"
-          >
-            <Image alt="Github Icon" src={GithubIcon} />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/supunsathsara/"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Supun Sathsara on LinkedIn"
-          >
-            <Image alt="Linkedin Icon" src={LinkedinIcon} />
-          </Link>
-          <Link
-            href="https://twitter.com/ssupunsathsara"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Supun Sathsara on Twitter"
-          >
-            <Image
-              alt="X Icon"
-              className="p-2"
-              height={48}
-              src={XIcon}
-              width={48}
-            />
-          </Link>
-          <Link
-            href="https://www.instagram.com/s_supun_sathsara"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="Supun Sathsara on Instagram"
-          >
-            <Image
-              alt="Instagram Icon"
-              className="p-1"
-              height={48}
-              src={InstaIcon}
-            />
-          </Link>
-        </div>
-      </div> */}
+      </div>
       <div className="z-5">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-6 md:grid md:grid-cols-2 gap-4">

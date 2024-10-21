@@ -202,7 +202,7 @@ export const Card = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 h-screen z-50 overflow-auto bg-[#0000006a]">
+          <div className="fixed inset-0 h-full z-50 overflow-auto bg-[#0000006a]">
             <motion.div
               animate={{ opacity: 1 }}
               className="bg-black/80 backdrop-blur-lg h-full w-full fixed inset-0"
