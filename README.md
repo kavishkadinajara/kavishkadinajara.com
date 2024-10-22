@@ -1,53 +1,27 @@
-# Next.js & NextUI Template
+# kavishkadinajara.com
+<div style="background-color: black; padding: 10px; text-align: center;">
+    <img src="https://github.com/user-attachments/assets/32dba07d-6224-4384-a850-c4cab9eed480" alt="Logo" style="background-color: black;">
+</div>
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+This is the source code for my personal website, [kavishkadinajara.com](https://kavishkadinajara.com/), where I showcase my projects, skills, and blog posts. It is built with [Next.js 14](https://nextjs.org/), a React framework that provides powerful features like server-side rendering, static site generation, and API routes. The website also uses [Next UI](https://nextui.org/), a beautiful, fast, and modern React UI library for a stunning design, and [Tailwind CSS](https://tailwindcss.com), a utility-first CSS framework for fast styling.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Installation
 
-## Technologies Used
+To run this project locally, follow these steps:
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+1. Clone this repository: `git clone https://github.com/kavishkadinajara/kavishkadinajara.com.git`
+2. Navigate to the project directory: `cd kavishkadinajara.com`
+3. Install the dependencies: `npm install`
+4. Run the development server: `npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the website
 
-## How to Use
+## Deployment
 
-### Use the template with create-next-app
+This project is deployed on [Vercel](https://vercel.com), a platform designed for Next.js applications. To deploy your own version, follow these steps:
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+1. Fork this repository on GitHub
+2. Sign up for a free account on [Vercel](https://vercel.com)
+3. Connect your GitHub account to Vercel
+4. Import your forked repository as a new project on Vercel
+5. Configure the environment variables and settings as needed
+6. Deploy your project and enjoy your website
