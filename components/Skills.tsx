@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardHeader } from "@nextui-org/react";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type Skill = { name: string; icon: string; level: string };
 type Education = {
@@ -10,7 +11,12 @@ type Education = {
   year: string;
   details: string;
 };
-type Certificate = { title: string; issuedBy: string; date: string };
+type Certificate = {
+  title: string;
+  issuedBy: string;
+  date: string;
+  link: string;
+};
 
 const skills: Skill[] = [
   {
@@ -164,7 +170,12 @@ const educationList: Education[] = [
 ];
 
 const certificates: Certificate[] = [
-  { title: "Frontend Development", issuedBy: "Coursera", date: "2022" },
+  {
+    title: "Postman API Fundamentals Student Expert",
+    issuedBy: "Postman",
+    date: "May 19, 2024 at 4:28 PM",
+    link: "https://badgr.com/public/assertions/dfsTAgAMQ5i8gVTH6hODgw?identity__email=kavishkadinajara@gmail.com",
+  },
 ];
 
 export default function ProfileDetails() {
@@ -247,6 +258,7 @@ export default function ProfileDetails() {
                 <p className="text-gray-500">
                   {certificate.issuedBy} - {certificate.date}
                 </p>
+                <Link href={certificate.link} >View</Link>
               </div>
             </CardHeader>
           </Card>
