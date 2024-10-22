@@ -1,24 +1,24 @@
 /* eslint-disable react/jsx-no-undef */
 "use client";
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
-} from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
+import {
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Navbar as NextUINavbar,
+} from "@nextui-org/navbar";
 import { link as linkStyles } from "@nextui-org/theme";
-import NextLink from "next/link";
 import clsx from "clsx";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import NextLink from "next/link";
 
-import { siteConfig } from "@/config/site";
 import { GithubIcon, HeartFilledIcon } from "@/components/icons";
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   return (
@@ -118,7 +118,6 @@ export const Navbar = () => {
           </NavbarItem> */}
           <NavbarItem className="hidden md:flex">
             <Button
-              isExternal
               as={Link}
               className="text-sm font-normal text-white bg-lime-600 hover:bg-lime-500 transition-all duration-300"
               href={siteConfig.links.sponsor}
