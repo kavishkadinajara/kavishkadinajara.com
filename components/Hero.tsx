@@ -159,7 +159,7 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={11} />
+                <CountUp duration={2} end={2} />+
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
                 Years of experience
@@ -171,7 +171,7 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={25} />
+                <CountUp duration={2} end={10} />+
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
                 Projects completed
@@ -183,7 +183,7 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={8} />
+                <CountUp duration={2} end={8} />+
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
                 Technologies mastered

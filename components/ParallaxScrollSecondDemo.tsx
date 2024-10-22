@@ -6,11 +6,13 @@ export function ParallaxScrollSecondDemo() {
 }
 
 const images = [
-  "/aboutme/me.jpg",
+  "/aboutme/about0.jpg",
   "/aboutme/about1.jpg",
   "/aboutme/about2.jpg",
   "/aboutme/about3.jpg",
+  "/aboutme/about4.jpg",
   "/aboutme/about5.jpg",
+  "/aboutme/about6.jpg",
   "/aboutme/about7.jpg",
   "/aboutme/about8.jpg",
   "/aboutme/about9.jpg",
@@ -19,6 +21,8 @@ const images = [
   "/aboutme/about12.jpg",
   "/aboutme/about13.jpg",
   "/aboutme/about14.jpg",
+  "/aboutme/about15.jpg",
+  "/aboutme/about16.jpg",
   "/aboutme/bgr1.png",
   "/aboutme/bgr2.png",
   "/aboutme/bgr3.png",
