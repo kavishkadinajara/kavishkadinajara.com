@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
               <div>
                 <Link
                   className="block md:hidden  text-gray-200 border-4 border-cyan-500 hover:border-green-600 font-bold py-4 px-2 sm:px-8 rounded-full transition duration-300 hover:shadow-lg hover:shadow-green-500 text-center bg-[#0c19197e] hover:bg-[#0e190c7e]"
-                  href="#"
+                  href="#contact"
                 >
                   Hire Me
                 </Link>
