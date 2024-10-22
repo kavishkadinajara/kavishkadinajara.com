@@ -13,7 +13,7 @@ import { ParallaxScrollSecondDemo } from "@/components/ParallaxScrollSecondDemo"
 
 const AboutMe = () => {
   return (
-    <SparklesPreview>
+    <div>
       <section
         className="pt-12 px-4 lg:py-16 lg:px-8 text-white z-30"
         id="aboutme"
@@ -134,7 +134,7 @@ const AboutMe = () => {
       <section>
         <Skills />
       </section>
-    </SparklesPreview>
+    </div>
   );
 };
 

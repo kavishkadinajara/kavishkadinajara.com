@@ -94,30 +94,31 @@ const EmailSection = () => {
 
   return (
     <section
-      className="grid md:grid-cols-2 px-8 md:px-28 lg:px-40 my-12 md:my-12 py-24 gap-4 relative z-20"
+      className="flex flex-col md:flex-row px-6 sm:px-10 md:px-28 lg:px-40 py-16 md:py-24 gap-8 md:gap-12 relative z-20"
       id="contact"
     >
-      <div className="rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-[80%] md:-translate-x-1/2 -translate-1/2" />
-      <div className="z-5">
-        <h2 className="text-xl font-bold text-white my-2">
+      <div className="rounded-full h-40 w-40 sm:h-60 sm:w-60 lg:h-80 lg:w-80 z-0 blur-lg absolute top-[90%] md:top-3/4 left-0 md:left-[-20%] transform -translate-x-1/2 -translate-y-1/2 md:translate-x-0" />
+      <div className="z-5 w-full md:w-1/2">
+        <h2 className="text-2xl md:text-3xl font-bold text-white my-2">
           Let&apos;s Connect
         </h2>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+        <p className="text-[#ADB7BE] mb-4 max-w-md text-sm md:text-base">
           "I love to code and I'm always looking for new opportunities to learn
           and grow. Currently, I'm working on several projects, and I'm always
           open to fresh ideas and collaborations. If you have any questions or
           would like to work together, feel free to reach out!".
         </p>
-        <p className="text-lg font-semibold my-5 text-white">
+        <p className="text-lg md:text-xl font-semibold my-5 text-white">
           <a className="hover:underline" href="mailto:contact@kavishka.com">
             contact@kavishka.com
           </a>
         </p>
       </div>
-      <div className="z-5">
+
+      <div className="z-5 w-full md:w-1/2">
         <form className="flex flex-col" onSubmit={handleSubmit}>
-          <div className="mb-6 md:grid md:grid-cols-2 gap-4">
-            <div className="mb-6 md:mb-0">
+          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div>
               <label
                 className="text-white block text-sm mb-2 font-medium"
                 htmlFor="name"
@@ -195,19 +196,19 @@ const EmailSection = () => {
           />
 
           <button
-            className="bg-primary-700 hover:bg-primary-800 disabled:bg-primary-900 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+            className="bg-primary-700 hover:bg-primary-800 disabled:bg-primary-900 text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto"
             disabled={isSending || status !== "solved"}
             type="submit"
           >
             {isSending ? "Sending..." : "Send"}
           </button>
           {emailSubmitted && (
-            <p className="text-green-400 text-sm md:text-base mt-2 z-5 mx-auto font-bold">
+            <p className="text-green-400 text-sm md:text-base mt-2 font-bold">
               Email sent successfully!
             </p>
           )}
           {emailError && (
-            <p className="text-red-400 text-sm md:text-base mt-2 z-5 mx-auto font-bold">
+            <p className="text-red-400 text-sm md:text-base mt-2 font-bold">
               An error occurred. Please try again.
             </p>
           )}
