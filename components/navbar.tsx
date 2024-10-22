@@ -144,7 +144,7 @@ export const Navbar = () => {
             {siteConfig.navMenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`}>
                 <Link
-                  className="text-white text-lg hover:text-cyan-300 transition-all duration-300"
+                  className="text-white text-lg hover:text-cyan-300 transition-all duration-300 mt-16"
                   color={
                     index === 2
                       ? "primary"
