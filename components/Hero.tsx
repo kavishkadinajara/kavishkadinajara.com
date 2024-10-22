@@ -1,13 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { TypeAnimation } from "react-type-animation";
 
 import { FloatingDockDemo } from "./FloatingDockDemo";
-import { SparklesPreview } from "./SparklesPreview";
 
 import { fetchGitHubData } from "@/lib/utils/githubData";
 
@@ -86,7 +85,9 @@ const HeroSection: React.FC = () => {
               <div>
                 <Link
                   className="block  text-gray-200 border-4 border-cyan-500 hover:border-green-600 font-bold py-4 px-2 sm:px-8 rounded-full transition duration-300 hover:shadow-lg hover:shadow-green-500 text-center bg-[#0c19197e] hover:bg-[#0e190c7e]"
-                  href="#"
+                  download="KAVISHKA-DINAJARA-CV.pdf"
+                  href="/KAVISHKA-DINAJARA-CV.pdf"
+                  title="Download My CV"
                 >
                   Download CV
                 </Link>
