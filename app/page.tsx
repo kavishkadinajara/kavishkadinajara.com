@@ -11,9 +11,9 @@ export default function Home() {
         <Hero />
       </SparklesPreview>
 
-      <SparklesPreview>
+      {/* <SparklesPreview> */}
         <AboutMe />
-      </SparklesPreview>
+      {/* </SparklesPreview> */}
 
       {/* <SparklesPreview> */}
       <MyProjects />
