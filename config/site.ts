@@ -28,7 +28,7 @@ export const siteConfig = {
     },
     {
       label: "About",
-      href: "/#about",
+      href: "/#aboutme",
     },
     {
       label: "Work",

@@ -94,7 +94,7 @@ const EmailSection = () => {
 
   return (
     <section
-      className="flex flex-col md:flex-row px-6 sm:px-10 md:px-28 lg:px-40 py-16 md:py-24 gap-8 md:gap-12 relative z-20"
+      className="flex flex-col md:flex-row px-6 sm:px-10 md:px-28 lg:px-40 py-16 md:py-24 gap-8 md:gap-12 relative z-50"
       id="contact"
     >
       <div className="rounded-full h-40 w-40 sm:h-60 sm:w-60 lg:h-80 lg:w-80 z-0 blur-lg absolute top-[90%] md:top-3/4 left-0 md:left-[-20%] transform -translate-x-1/2 -translate-y-1/2 md:translate-x-0" />
@@ -196,8 +196,8 @@ const EmailSection = () => {
           /> */}
 
           <button
-            className="bg-primary-700 hover:bg-primary-800 disabled:bg-primary-900 text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto"
-            disabled={isSending || status !== "solved"}
+            className="bg-cyan-700  text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto z-50"
+            // disabled={isSending || status !== "solved"}
             type="submit"
           >
             {isSending ? "Sending..." : "Send"}
