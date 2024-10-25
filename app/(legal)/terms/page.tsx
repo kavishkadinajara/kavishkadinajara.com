@@ -27,7 +27,7 @@ export default function TermsOfServicePage() {
               Terms of Service
             </h1>
             <p className="text-sm text-gray-700 text-center mb-4">
-              Last updated: 2024.10.23
+              Last updated: October 25, 2024
             </p>
 
             <motion.div
@@ -129,7 +129,7 @@ export default function TermsOfServicePage() {
                 can contact us at:
               </p>
               <p className="text-gray-400 text-center mt-2 font-medium">
-                Email: contact@kavishkadinajara.com
+                Email: kavishkadinajara@gmail.com.com
               </p>
             </motion.div>
           </motion.div>

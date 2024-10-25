@@ -110,7 +110,7 @@ const EmailSection = () => {
         </p>
         <p className="text-lg md:text-xl font-semibold my-5 text-white">
           <a className="hover:underline" href="mailto:contact@kavishka.com">
-            contact@kavishka.com
+            kavishkadinajara@gmail.com
           </a>
         </p>
       </div>
@@ -183,7 +183,7 @@ const EmailSection = () => {
               placeholder="Let's talk about..."
             />
           </div>
-          <Turnstile
+          {/* <Turnstile
             ref={captchaRef}
             className="mb-6"
             options={{
@@ -193,7 +193,7 @@ const EmailSection = () => {
             onError={() => setStatus("error")}
             onExpire={() => setStatus("expired")}
             onSuccess={() => setStatus("solved")}
-          />
+          /> */}
 
           <button
             className="bg-primary-700 hover:bg-primary-800 disabled:bg-primary-900 text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto"

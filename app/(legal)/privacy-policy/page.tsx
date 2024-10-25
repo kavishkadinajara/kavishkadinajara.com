@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </h1>
             <p className="text-sm text-gray-500 text-center mb-4">
-              Last updated: [Date]
+              Last updated: October 25, 2024
             </p>
 
             <motion.div
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
                 contact us at:
               </p>
               <p className="text-gray-900 text-center mt-2 font-medium">
-                Email: [Your Email Address]
+                Email: kavishkadinajara@gmail.com
               </p>
             </motion.div>
           </motion.div>

@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
     }
 
     const adminMsg = {
-      to: "contact@supunsathsara.com",
-      from: { name: name, email: "no-reply@supunsathsara.com" },
+      to: "kavishkadinajara@gmail.com",
+      from: { name: name, email: "kavishkadinajara@gmail.com" },
       replyTo: email,
       subject: `${subject} Inquiry from ${name}`,
       text: message,
