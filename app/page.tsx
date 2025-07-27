@@ -1,8 +1,9 @@
-import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
-import { SparklesPreview } from "@/components/SparklesPreview";
-import MyProjects from "@/components/MyProjects";
 import EmailSection from "@/components/EmailSection";
+import HackathonAchievement from "@/components/HackathonAchievement";
+import Hero from "@/components/Hero";
+import MyProjects from "@/components/MyProjects";
+import { SparklesPreview } from "@/components/SparklesPreview";
 
 export default function Home() {
   return (
@@ -11,17 +12,14 @@ export default function Home() {
         <Hero />
       </SparklesPreview>
 
-      {/* <SparklesPreview> */}
-        <AboutMe />
-      {/* </SparklesPreview> */}
+      <AboutMe />
 
-      {/* <SparklesPreview> */}
+      <HackathonAchievement />
+
       <MyProjects />
-      {/* </SparklesPreview> */}
 
-      {/* <SparklesPreview> */}
       <EmailSection />
-      {/* </SparklesPreview> */}
     </section>
   );
 }
+

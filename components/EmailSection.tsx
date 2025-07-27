@@ -1,8 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-console */
 "use client";
-import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 
 // Define the form data type
@@ -11,15 +11,12 @@ interface FormData {
   email: string;
   subject: string;
   message: string;
-  token: string;
 }
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [isSending, setIsSending] = useState<boolean>(false);
-  const [status, setStatus] = useState<string>(""); // Track the captcha status
-  const captchaRef = useRef<TurnstileInstance | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,61 +31,48 @@ const EmailSection = () => {
       email: formData.get("email") as string,
       subject: formData.get("subject") as string,
       message: formData.get("message") as string,
-      token: formData.get("cf-turnstile-response") as string,
     };
+
+    // Validate form data
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      toast.error("Please fill in all fields");
+      setIsSending(false);
+      return;
+    }
 
     const endpoint = "/api/send";
 
     try {
       toast.dismiss();
-      await toast.promise(
-        fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }).then((response) => {
-          if (response.status === 200) {
-            setEmailSubmitted(true);
-            setEmailError(false);
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-            return response.json();
-          } else {
-            setEmailError(true);
-            setEmailSubmitted(false);
-            throw new Error("An error occurred. Please try again later.");
-          }
-        }),
-        {
-          loading: "Sending...",
-          success: "Email sent successfully!",
-          error: "An error occurred. Please try again later.",
-        },
-        {
-          style: {
-            minWidth: "250px",
-            borderRadius: "10px",
-            background: "#333",
-            color: "#fff",
-            fontSize: "18px",
-          },
-        },
-      );
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setEmailSubmitted(true);
+        setEmailError(false);
+        toast.success(result.message || "Email sent successfully!");
+        e.currentTarget.reset(); // Reset the form only on success
+      } else {
+        setEmailError(true);
+        setEmailSubmitted(false);
+        const errorMessage = result.message || "An error occurred. Please try again later.";
+        toast.error(errorMessage);
+        console.error("API Error:", result);
+      }
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Network error:", error);
       setEmailError(true);
       setEmailSubmitted(false);
+      toast.error("Network error. Please check your connection and try again.");
     } finally {
       setIsSending(false);
-      setStatus("");
-
-      // Ensure captchaRef is not null before calling reset
-      if (captchaRef.current) {
-        captchaRef.current.reset();
-      }
-
-      e.currentTarget.reset(); // Reset the form
     }
   };
 
@@ -103,13 +87,13 @@ const EmailSection = () => {
           Let&apos;s Connect
         </h2>
         <p className="text-[#ADB7BE] mb-4 max-w-md text-sm md:text-base">
-          "I love to code and I'm always looking for new opportunities to learn
-          and grow. Currently, I'm working on several projects, and I'm always
-          open to fresh ideas and collaborations. If you have any questions or
-          would like to work together, feel free to reach out!".
+          "As an Associate Software Engineer with expertise in modern web development and ERP systems, 
+          I'm always excited to collaborate on innovative projects. Whether you're looking for technical 
+          consultation, development services, or just want to discuss technology trends, I'd love to connect 
+          and explore how we can work together to build something amazing!"
         </p>
         <p className="text-lg md:text-xl font-semibold my-5 text-white">
-          <a className="hover:underline" href="mailto:contact@kavishka.com">
+          <a className="hover:underline" href="mailto:kavishkadinajara@gmail.com">
             kavishkadinajara@gmail.com
           </a>
         </p>
@@ -123,12 +107,12 @@ const EmailSection = () => {
                 className="text-white block text-sm mb-2 font-medium"
                 htmlFor="name"
               >
-                Name
+                Name *
               </label>
               <input
                 required
                 autoComplete="name"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                 id="name"
                 name="name"
                 placeholder="John Doe"
@@ -140,14 +124,15 @@ const EmailSection = () => {
                 className="text-white block mb-2 text-sm font-medium"
                 htmlFor="email"
               >
-                Your email
+                Your email *
               </label>
               <input
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                autoComplete="email"
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
                 id="email"
                 name="email"
-                placeholder="jacob@google.com"
+                placeholder="john@example.com"
                 type="email"
               />
             </div>
@@ -157,11 +142,11 @@ const EmailSection = () => {
               className="text-white block text-sm mb-2 font-medium"
               htmlFor="subject"
             >
-              Subject
+              Subject *
             </label>
             <input
               required
-              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
               id="subject"
               name="subject"
               placeholder="Just saying hi"
@@ -173,43 +158,32 @@ const EmailSection = () => {
               className="text-white block text-sm mb-2 font-medium"
               htmlFor="message"
             >
-              Message
+              Message *
             </label>
             <textarea
               required
-              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 h-32 resize-vertical focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
               id="message"
               name="message"
               placeholder="Let's talk about..."
             />
           </div>
-          {/* <Turnstile
-            ref={captchaRef}
-            className="mb-6"
-            options={{
-              theme: "dark",
-            }}
-            siteKey="0x4AAAAAAANZ9isw01CpEZ7d"
-            onError={() => setStatus("error")}
-            onExpire={() => setStatus("expired")}
-            onSuccess={() => setStatus("solved")}
-          /> */}
 
           <button
-            className="bg-cyan-700  text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto z-50"
-            // disabled={isSending || status !== "solved"}
+            className="bg-cyan-700 hover:bg-cyan-600 text-white font-medium py-2.5 px-5 rounded-lg w-full md:w-auto z-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+            disabled={isSending}
             type="submit"
           >
-            {isSending ? "Sending..." : "Send"}
+            {isSending ? "Sending..." : "Send Message"}
           </button>
           {emailSubmitted && (
             <p className="text-green-400 text-sm md:text-base mt-2 font-bold">
-              Email sent successfully!
+              ✅ Email sent successfully!
             </p>
           )}
           {emailError && (
             <p className="text-red-400 text-sm md:text-base mt-2 font-bold">
-              An error occurred. Please try again.
+              ❌ An error occurred. Please try again.
             </p>
           )}
         </form>
