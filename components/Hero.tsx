@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -56,11 +57,15 @@ const HeroSection: React.FC = () => {
                 sequence={[
                   "Kavishka Dinajara",
                   2000,
-                  "A Web Developer",
+                  "Associate Software Engineer",
                   1000,
-                  "A Backend Developer",
+                  "Full Stack Developer",
                   1000,
-                  "A Rugby Player",
+                  "ERP Systems Specialist",
+                  1000,
+                  "DevOps & Azure Enthusiast",
+                  1000,
+                  "Rugby Player",
                   1000,
                 ]}
                 speed={50}
@@ -74,8 +79,8 @@ const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
             >
-              &quot;Empowering digital experiences through innovation,
-              technology, and a passion for web development.&quot;
+              &quot;Passionate Associate Software Engineer specializing in modern web applications,
+              ERP systems, and innovative solutions for the agricultural industry.&quot;
             </motion.p>
             <motion.div
               className="grid grid-cols-1 lg:grid-cols-1 gap-4 sm:gap-6"
@@ -160,10 +165,10 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={2} />+
+                <CountUp duration={2} end={1} />+
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
-                Years of experience
+                Years Professional Experience
               </p>
             </motion.div>
             <motion.div
@@ -172,25 +177,25 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.1 }}
             >
               <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={10} />+
+                <CountUp duration={2} end={15} />+
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
                 Projects completed
               </p>
             </motion.div>
-            <motion.div
+            {/* <motion.div
               className="text-center"
               transition={{ duration: 1.9 }}
               whileHover={{ scale: 1.1 }}
             >
-              <h3 className="text-xl sm:text-2xl font-bold">
-                <CountUp duration={2} end={8} />+
+              <h3 className="text-xl sm:text-2xl font-bold text-yellow-400">
+                5th
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">
-                Technologies mastered
+                Hackathon Placement
               </p>
-            </motion.div>
-            <motion.div
+            </motion.div> */}
+            {/* <motion.div
               className="text-center"
               transition={{ duration: 1.9 }}
               whileHover={{ scale: 1.1 }}
@@ -211,7 +216,7 @@ const HeroSection: React.FC = () => {
                 <CountUp duration={2} end={gitHubStats.totalCommits} />
               </h3>
               <p className="text-xs sm:text-sm text-gray-200">Total Commits</p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </section>
