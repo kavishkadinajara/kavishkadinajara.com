@@ -17,7 +17,7 @@ const HackathonAchievement = () => (
         transition={{ duration: 0.6 }}
       >
         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-          <FaTrophy className="text-lg" />
+          {FaTrophy({ className: "text-lg" })}
           <span>Hackathon Achievement</span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -38,7 +38,7 @@ const HackathonAchievement = () => (
           <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-                <FaTrophy className="text-white text-2xl" />
+                {FaTrophy({ className: "text-white text-2xl" })}
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-white">EVENTURE</h3>
@@ -52,14 +52,14 @@ const HackathonAchievement = () => (
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-800/50 rounded-lg p-4 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <FaUsers className="text-cyan-400" />
+                  {FaUsers({ className: "text-cyan-400" })}
                   <span className="text-2xl font-bold text-white">100+</span>
                 </div>
                 <p className="text-gray-400 text-sm">University Teams</p>
               </div>
               <div className="bg-gray-800/50 rounded-lg p-4 text-center">
                 <div className="flex items-center justify-center gap-2 mb-2">
-                  <FaTrophy className="text-yellow-400" />
+                  {FaTrophy({ className: "text-yellow-400" })}
                   <span className="text-2xl font-bold text-white">Top 10</span>
                 </div>
                 <p className="text-gray-400 text-sm">Finalists</p>
@@ -68,7 +68,7 @@ const HackathonAchievement = () => (
           </div>
           <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-700/30">
             <h4 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <FaCode className="text-cyan-400" />
+              {FaCode({ className: "text-cyan-400" })}
               Tech Stack
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -100,7 +100,7 @@ const HackathonAchievement = () => (
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              <FaCode />
+              {FaCode({})}
               Source Code
             </Link>
             <Link
@@ -151,7 +151,7 @@ const HackathonAchievement = () => (
               repeatType: "reverse"
             }}
           >
-            <FaTrophy className="text-2xl" />
+            {FaTrophy({ className: "text-2xl" })}
           </motion.div>
           {/* <div className="mt-6 bg-gray-900/70 backdrop-blur-sm rounded-lg p-4 border border-gray-700/50 w-full max-w-md mx-auto">
             <div className="flex items-center gap-3 mb-3">
