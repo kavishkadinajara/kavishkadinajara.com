@@ -1,13 +1,12 @@
 "use client";
-import React from "react";
-import {
-  FaGavel,
-  FaLock,
-  FaRegEdit,
-  FaUserShield,
-  FaRegClock,
-} from "react-icons/fa";
 import { motion } from "framer-motion";
+import {
+    FaGavel,
+    FaLock,
+    FaRegClock,
+    FaRegEdit,
+    FaUserShield,
+} from "react-icons/fa";
 
 import { SparklesPreview } from "@/components/SparklesPreview";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";

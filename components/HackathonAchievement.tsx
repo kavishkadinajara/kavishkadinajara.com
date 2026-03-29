@@ -4,7 +4,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaCode, FaTrophy, FaUsers } from "react-icons/fa";
+import { FaCode, FaTrophy, FaUsers } from "react-icons/fa";
 
 const HackathonAchievement = () => (
   <section className="py-16 md:py-24 px-4 lg:px-8 relative overflow-hidden">
