@@ -1,0 +1,265 @@
+---
+title: "React + Material UI Patterns I Wish I Knew Earlier"
+date: "2025-02-14"
+tags: ["react", "frontend", "materialui", "javascript"]
+summary: "Component patterns, shared style architecture, and MUI v4 tricks learned from building a large-scale ERP frontend with 100+ screens."
+coverImage: null
+published: true
+---
+
+Building a React + MUI frontend for an ERP system with 100+ screens teaches you things no tutorial covers. Here are the patterns I wish I'd known from day one — all learned the hard way on AgriGen ERP.
+
+## The Shared Styles Problem
+
+Early in the project, every component defined its own `useStyles` hook with duplicated values:
+
+```js
+// BAD — repeated across 40 files
+const useStyles = makeStyles({
+  tableHeader: {
+    backgroundColor: "#1a237e",
+    color: "#fff",
+    fontWeight: 700,
+  },
+});
+```
+
+When we needed to change the header color, we had to hunt through 40 files.
+
+### The Fix: ModuleStyles.js Pattern
+
+```js
+// styles/moduleStyles.js
+import { makeStyles } from "@material-ui/core/styles";
+
+export const useTableStyles = makeStyles((theme) => ({
+  headerCell: {
+    backgroundColor: theme.palette.primary.dark,
+    color: "#fff",
+    fontWeight: 700,
+    whiteSpace: "nowrap",
+  },
+  row: {
+    "&:hover": { backgroundColor: "rgba(14, 165, 233, 0.04)" },
+    cursor: "pointer",
+  },
+  actionCell: {
+    width: 120,
+    textAlign: "center",
+  },
+}));
+
+export const useFormStyles = makeStyles((theme) => ({
+  fieldGroup: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: theme.spacing(2),
+  },
+  sectionLabel: {
+    color: theme.palette.text.secondary,
+    fontSize: "0.75rem",
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+    marginBottom: theme.spacing(1),
+  },
+}));
+```
+
+Now every component imports from one place. One change, every screen updates.
+
+## Reusable Table Component
+
+After building 15 data tables with the same MUI `TableContainer` boilerplate, we abstracted it:
+
+```jsx
+// components/shared/DataTable.jsx
+export function DataTable({ columns, rows, onRowClick, loading }) {
+  const classes = useTableStyles();
+
+  if (loading) return <TableSkeleton cols={columns.length} />;
+
+  return (
+    <TableContainer component={Paper} elevation={0} variant="outlined">
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            {columns.map((col) => (
+              <TableCell
+                key={col.field}
+                className={classes.headerCell}
+                align={col.align ?? "left"}
+                style={{ width: col.width }}
+              >
+                {col.header}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row, i) => (
+            <TableRow
+              key={row.id ?? i}
+              className={classes.row}
+              onClick={() => onRowClick?.(row)}
+            >
+              {columns.map((col) => (
+                <TableCell key={col.field} align={col.align ?? "left"}>
+                  {col.render ? col.render(row) : row[col.field]}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+```
+
+Usage becomes declarative:
+
+```jsx
+<DataTable
+  columns={[
+    { field: "invoiceNo", header: "Invoice #", width: 120 },
+    { field: "date", header: "Date" },
+    {
+      field: "amount",
+      header: "Amount (Rs.)",
+      align: "right",
+      render: (row) => row.amount.toLocaleString(),
+    },
+    {
+      field: "actions",
+      header: "",
+      render: (row) => <ActionMenu row={row} />,
+    },
+  ]}
+  rows={invoices}
+  loading={isLoading}
+  onRowClick={(row) => navigate(`/invoices/${row.id}`)}
+/>
+```
+
+New table screens take 10 minutes instead of an hour.
+
+## Form Patterns with React Hook Form + MUI
+
+Connecting MUI inputs to `react-hook-form` cleanly:
+
+```jsx
+// components/shared/FormTextField.jsx
+export function FormTextField({ name, label, control, rules, ...props }) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      rules={rules}
+      render={({ field, fieldState }) => (
+        <TextField
+          {...field}
+          {...props}
+          label={label}
+          error={!!fieldState.error}
+          helperText={fieldState.error?.message}
+          variant="outlined"
+          size="small"
+          fullWidth
+        />
+      )}
+    />
+  );
+}
+```
+
+Then in any form:
+
+```jsx
+<FormTextField
+  name="weight"
+  label="Weight (kg)"
+  control={control}
+  rules={{ required: "Weight is required", min: { value: 0, message: "Must be positive" } }}
+  type="number"
+/>
+```
+
+No boilerplate. Validation wired automatically.
+
+## Performance: Avoiding Unnecessary Re-renders
+
+In a screen with 200+ rows and real-time WebSocket updates, re-renders were killing performance.
+
+### useMemo for Expensive Computations
+
+```jsx
+const totals = useMemo(() => {
+  return invoices.reduce(
+    (acc, inv) => ({
+      weight: acc.weight + inv.weightKg,
+      amount: acc.amount + inv.totalAmount,
+      count: acc.count + 1,
+    }),
+    { weight: 0, amount: 0, count: 0 }
+  );
+}, [invoices]);
+```
+
+### React.memo for Pure Row Components
+
+```jsx
+const InvoiceRow = React.memo(function InvoiceRow({ invoice, onEdit }) {
+  return (
+    <TableRow onClick={() => onEdit(invoice.id)}>
+      <TableCell>{invoice.invoiceNo}</TableCell>
+      <TableCell>{invoice.totalAmount.toLocaleString()}</TableCell>
+    </TableRow>
+  );
+});
+```
+
+Without `React.memo`, updating one invoice caused every row to re-render. With it — only the changed row updates.
+
+### useCallback for Stable References
+
+```jsx
+const handleEdit = useCallback(
+  (id) => {
+    navigate(`/invoices/${id}`);
+  },
+  [navigate]
+);
+```
+
+Pass `handleEdit` to `React.memo` components — it won't trigger re-renders because the reference is stable.
+
+## MUI v4 Specific Tricks
+
+**1. Accessing theme in plain JS (not inside makeStyles):**
+
+```js
+import { createMuiTheme } from "@material-ui/core/styles";
+const theme = createMuiTheme();
+const primary = theme.palette.primary.main; // use anywhere
+```
+
+**2. Responsive grid without breakpoint boilerplate:**
+
+```jsx
+<Grid container spacing={2}>
+  <Grid item xs={12} sm={6} md={4}>...</Grid>
+</Grid>
+```
+
+**3. Conditional styles without className gymnastics:**
+
+```jsx
+<TableRow
+  style={{
+    backgroundColor: row.isOverdue ? "rgba(239,68,68,0.08)" : undefined,
+    fontWeight: row.isPriority ? 700 : undefined,
+  }}
+>
+```
+
+These patterns cut our average screen development time in half and made the codebase something a new developer could understand in a day instead of a week.

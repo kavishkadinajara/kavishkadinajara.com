@@ -1,0 +1,166 @@
+---
+title: "Dapper vs EF Core — Choosing the Right ORM for Your Project"
+date: "2025-03-22"
+tags: ["dotnet", "database", "dapper", "sql"]
+summary: "A side-by-side comparison of Dapper and Entity Framework Core — when to use each, performance benchmarks, and real stored procedure examples from production."
+coverImage: null
+published: true
+---
+
+Every .NET project eventually faces this question: **Dapper or Entity Framework Core?** I've used both in production. Here's the honest comparison — not the marketing version.
+
+## What They Actually Are
+
+**Dapper** is a micro-ORM. It extends `IDbConnection` with helper methods that map SQL query results to C# objects. You write the SQL. Dapper does the mapping.
+
+**EF Core** is a full ORM. It generates SQL from your C# LINQ queries, manages database migrations, tracks entity changes, and handles relationships automatically.
+
+They solve different problems.
+
+## The Comparison Table
+
+| Feature | Dapper | EF Core |
+|---|---|---|
+| Learning curve | Low | High |
+| SQL control | Full | Limited |
+| Performance | Excellent | Good (varies) |
+| Complex queries | Easy | Can get messy |
+| Migrations | Manual | Built-in |
+| Relationships | Manual mapping | Automatic |
+| Stored procedures | First-class | Awkward |
+| Prototyping speed | Slower | Faster |
+
+## Dapper in Practice — What It Looks Like
+
+A typical Dapper repository method in AgriGen:
+
+```csharp
+public async Task<IEnumerable<InvoiceSummaryDto>> GetInvoiceSummaryAsync(
+    int estateId, DateRange range)
+{
+    using var conn = await _factory.CreateAsync();
+
+    const string sql = @"
+        SELECT
+            i.InvoiceNo,
+            i.InvoiceDate,
+            SUM(ip.PackWeight) AS TotalWeight,
+            SUM(ip.PackAmount) AS TotalAmount,
+            COUNT(ip.PackId)   AS PackCount
+        FROM Invoice i
+        INNER JOIN InvoicePack ip ON ip.InvoiceId = i.Id
+        WHERE i.EstateId = @EstateId
+          AND i.InvoiceDate BETWEEN @From AND @To
+          AND i.IsDeleted = 0
+        GROUP BY i.InvoiceNo, i.InvoiceDate
+        ORDER BY i.InvoiceDate DESC";
+
+    return await conn.QueryAsync<InvoiceSummaryDto>(sql, new
+    {
+        EstateId = estateId,
+        From = range.Start,
+        To = range.End,
+    });
+}
+```
+
+Clean. Readable. Exactly the SQL you want. No mystery about what hits the database.
+
+## Dapper Multi-Mapping — Handling Relationships
+
+When you need to JOIN and map to nested objects:
+
+```csharp
+const string sql = @"
+    SELECT e.*, d.* 
+    FROM Estate e
+    INNER JOIN Division d ON d.EstateId = e.Id
+    WHERE e.Id = @Id";
+
+var estates = await conn.QueryAsync<Estate, Division, Estate>(
+    sql,
+    (estate, division) =>
+    {
+        estate.Divisions ??= new List<Division>();
+        estate.Divisions.Add(division);
+        return estate;
+    },
+    new { Id = estateId },
+    splitOn: "DivisionId"
+);
+```
+
+It takes some getting used to. But once you understand `splitOn`, it's extremely powerful.
+
+## Stored Procedures with Dapper
+
+This is where Dapper truly shines over EF Core. Calling stored procedures is first-class:
+
+```csharp
+public async Task<FieldPLReportDto> GetFieldPLAsync(int fieldId, int year)
+{
+    using var conn = await _factory.CreateAsync();
+
+    var parameters = new DynamicParameters();
+    parameters.Add("@FieldId", fieldId);
+    parameters.Add("@Year", year);
+    parameters.Add("@TotalRevenue", dbType: DbType.Decimal, direction: ParameterDirection.Output);
+
+    await conn.ExecuteAsync(
+        "sp_GetFieldProfitLoss",
+        parameters,
+        commandType: CommandType.StoredProcedure
+    );
+
+    return new FieldPLReportDto
+    {
+        TotalRevenue = parameters.Get<decimal>("@TotalRevenue"),
+    };
+}
+```
+
+Doing this cleanly with EF Core requires raw SQL execution and is significantly more verbose.
+
+## Dapper Transactions
+
+```csharp
+using var conn = await _factory.CreateAsync();
+using var tx = conn.BeginTransaction();
+try
+{
+    await conn.ExecuteAsync(insertSql, entity, tx);
+    await conn.ExecuteAsync(auditSql, audit, tx);
+    tx.Commit();
+}
+catch
+{
+    tx.Rollback();
+    throw;
+}
+```
+
+## When EF Core Wins
+
+EF Core is the right choice when:
+
+- **You're prototyping fast** — migrations + scaffolding save hours
+- **Your schema is simple** — standard CRUD with few joins
+- **You want change tracking** — edit entity properties, call `SaveChanges()`, done
+- **Your team doesn't know SQL deeply** — LINQ is more approachable
+- **You need cross-database support** — switch between SQLite/SQL Server/PostgreSQL easily
+
+## When Dapper Wins
+
+Dapper is the right choice when:
+
+- **Performance matters** — Dapper is typically 2-5x faster than EF Core on complex queries
+- **You have complex SQL** — KPI dashboards, P&L reports, multi-level aggregations
+- **You're calling stored procedures** — your DBA wrote them, you call them
+- **You need full SQL control** — hints, CTEs, window functions, query plans
+- **You're working with legacy schemas** — no migration conflicts
+
+## My Recommendation
+
+Use **Dapper** when you're building business software with complex reporting requirements. Use **EF Core** when you're building a product where schema evolves rapidly and query complexity is low.
+
+In AgriGen, we use Dapper exclusively. With Field P&L reports spanning 5 joins, CTEs, and dynamic pivots — EF Core would generate either terrible SQL or force us to use raw SQL anyway. Might as well own it from the start.

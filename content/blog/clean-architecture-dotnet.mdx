@@ -1,0 +1,171 @@
+---
+title: "Clean Architecture in .NET Core — How I Actually Use It"
+date: "2025-04-10"
+tags: ["dotnet", "architecture", "backend", "csharp"]
+summary: "A practical breakdown of how Clean Architecture is implemented in AgriGen ERP — layers, interfaces, dependency injection, and real code examples."
+coverImage: null
+published: true
+---
+
+Clean Architecture gets talked about a lot. Most articles show you perfect diagrams with concentric circles and tell you to "depend inward." That's fine in theory. Here's what it actually looks like when you're building a production ERP system with .NET Core, Dapper, and SQL Server.
+
+## The Layer Structure We Use
+
+In AgriGen ERP, every feature module follows this four-layer pattern:
+
+```
+AgriGen.Domain          ← Entities, value objects, interfaces
+AgriGen.Application     ← Use cases, DTOs, service interface
+AgriGen.Infrastructure  ← Dapper repos, SQL, external services
+AgriGen.API             ← Controllers, middleware, DI wiring
+```
+
+The rule is simple: **each layer only knows about layers inside it**. Domain knows nothing. Application knows Domain. Infrastructure knows Application + Domain. API knows everything — but only to wire things up.
+
+## Domain Layer — Keep It Pure
+
+The Domain layer holds your business entities and repository interfaces. No Dapper. No Entity Framework. No HTTP clients. Nothing.
+
+```csharp
+// Domain/Entities/GreenLeaf.cs
+public class GreenLeaf
+{
+    public int Id { get; private set; }
+    public int EstateId { get; private set; }
+    public decimal WeightKg { get; private set; }
+    public DateTime HarvestDate { get; private set; }
+
+    public void AdjustWeight(decimal adjustment)
+    {
+        if (adjustment < 0 && Math.Abs(adjustment) > WeightKg)
+            throw new DomainException("Adjustment cannot exceed current weight.");
+        WeightKg += adjustment;
+    }
+}
+```
+
+```csharp
+// Domain/Interfaces/IGreenLeafRepository.cs
+public interface IGreenLeafRepository
+{
+    Task<GreenLeaf?> GetByIdAsync(int id);
+    Task<IEnumerable<GreenLeaf>> GetByEstateAsync(int estateId, DateRange range);
+    Task<int> CreateAsync(GreenLeaf leaf);
+}
+```
+
+The interface lives in Domain. The implementation lives in Infrastructure. This is the heart of the pattern — **depend on abstractions, not concretions**.
+
+## Application Layer — Business Logic Lives Here
+
+```csharp
+// Application/UseCases/GreenLeaf/RecordHarvestCommand.cs
+public record RecordHarvestCommand(int EstateId, decimal WeightKg, DateTime HarvestDate);
+
+public class RecordHarvestHandler
+{
+    private readonly IGreenLeafRepository _repo;
+    private readonly IUnitOfWork _uow;
+
+    public RecordHarvestHandler(IGreenLeafRepository repo, IUnitOfWork uow)
+    {
+        _repo = repo;
+        _uow = uow;
+    }
+
+    public async Task<int> HandleAsync(RecordHarvestCommand cmd)
+    {
+        var leaf = GreenLeaf.Create(cmd.EstateId, cmd.WeightKg, cmd.HarvestDate);
+        var id = await _repo.CreateAsync(leaf);
+        await _uow.CommitAsync();
+        return id;
+    }
+}
+```
+
+No SQL here. No `SqlConnection`. Just pure business logic calling interfaces.
+
+## Infrastructure Layer — Where Dapper Lives
+
+```csharp
+// Infrastructure/Repositories/GreenLeafRepository.cs
+public class GreenLeafRepository : IGreenLeafRepository
+{
+    private readonly IDbConnectionFactory _connFactory;
+
+    public GreenLeafRepository(IDbConnectionFactory connFactory)
+    {
+        _connFactory = connFactory;
+    }
+
+    public async Task<GreenLeaf?> GetByIdAsync(int id)
+    {
+        using var conn = await _connFactory.CreateAsync();
+        const string sql = "SELECT * FROM GreenLeaf WHERE Id = @Id AND IsDeleted = 0";
+        return await conn.QueryFirstOrDefaultAsync<GreenLeaf>(sql, new { Id = id });
+    }
+
+    public async Task<IEnumerable<GreenLeaf>> GetByEstateAsync(int estateId, DateRange range)
+    {
+        using var conn = await _connFactory.CreateAsync();
+        const string sql = @"
+            SELECT gl.*, e.EstateName
+            FROM GreenLeaf gl
+            INNER JOIN Estate e ON e.Id = gl.EstateId
+            WHERE gl.EstateId = @EstateId
+              AND gl.HarvestDate BETWEEN @From AND @To
+              AND gl.IsDeleted = 0
+            ORDER BY gl.HarvestDate DESC";
+
+        return await conn.QueryAsync<GreenLeaf>(sql, new
+        {
+            EstateId = estateId,
+            From = range.Start,
+            To = range.End
+        });
+    }
+}
+```
+
+Dapper is **perfect** for Clean Architecture because it doesn't try to own your domain model. You write the SQL. You map the results. No magic.
+
+## Wiring It All Together in Program.cs
+
+```csharp
+// API/Program.cs
+builder.Services.AddScoped<IGreenLeafRepository, GreenLeafRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<RecordHarvestHandler>();
+builder.Services.AddSingleton<IDbConnectionFactory, SqlConnectionFactory>();
+```
+
+## Common Mistakes I Made Early On
+
+**1. Putting business logic in controllers.** Controllers should be thin — receive request, call handler, return response. That's it.
+
+**2. Returning domain entities from the API.** Always map to DTOs. Your domain entity changes — your API contract shouldn't break.
+
+**3. Mixing layers in a rush.** When a deadline hits, it's tempting to put a `SqlConnection` directly in a handler. Don't. Future you will suffer.
+
+## Why This Makes Testing Easy
+
+With this structure, you can unit test handlers by mocking the repository interface:
+
+```csharp
+[Test]
+public async Task RecordHarvest_ShouldReturnId_WhenValid()
+{
+    var mockRepo = new Mock<IGreenLeafRepository>();
+    var mockUow = new Mock<IUnitOfWork>();
+    mockRepo.Setup(r => r.CreateAsync(It.IsAny<GreenLeaf>())).ReturnsAsync(42);
+
+    var handler = new RecordHarvestHandler(mockRepo.Object, mockUow.Object);
+    var result = await handler.HandleAsync(new RecordHarvestCommand(1, 125.5m, DateTime.Today));
+
+    Assert.That(result, Is.EqualTo(42));
+}
+```
+
+No database. No HTTP. Fast, deterministic, reliable.
+
+Clean Architecture is overhead when your project is small. But for AgriGen — which spans 7+ modules, 3 companies, and hundreds of SQL operations — it's been the difference between maintainable code and chaos.

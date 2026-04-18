@@ -88,5 +88,20 @@
         "next": ["const", "let", "var"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "components/World/**/*.tsx",
+        "components/World/**/*.ts",
+        "components/Overlay/**/*.tsx"
+      ],
+      "rules": {
+        "react/no-unknown-property": "off",
+        "react/jsx-sort-props": "off",
+        "prettier/prettier": "off",
+        "padding-line-between-statements": "off"
+      }
+    }
+  ]
 }
