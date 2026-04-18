@@ -2,7 +2,6 @@ import React from "react";
 import {
   IconBrandGithub,
   IconBrandX,
-  IconHome,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandFacebook,

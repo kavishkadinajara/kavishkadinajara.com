@@ -35,7 +35,8 @@ export default function SimpleGallery() {
         Gallery
       </h2>
       <p className="text-center text-gray-400 mb-10 max-w-lg mx-auto">
-        A calm showcase of my professional journey, teamwork, and personal milestones.
+        A calm showcase of my professional journey, teamwork, and personal
+        milestones.
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
         {images.map((src, idx) => (

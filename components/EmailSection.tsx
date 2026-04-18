@@ -37,6 +37,7 @@ const EmailSection = () => {
     if (!data.name || !data.email || !data.subject || !data.message) {
       toast.error("Please fill in all fields");
       setIsSending(false);
+
       return;
     }
 
@@ -63,6 +64,7 @@ const EmailSection = () => {
         setEmailError(true);
         setEmailSubmitted(false);
         const errorMessage = result.message || "An error occurred. Please try again later.";
+
         toast.error(errorMessage);
         console.error("API Error:", result);
       }

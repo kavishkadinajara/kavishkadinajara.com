@@ -258,7 +258,7 @@ export default function ProfileDetails() {
                 <p className="text-gray-500">
                   {certificate.issuedBy} - {certificate.date}
                 </p>
-                <Link href={certificate.link} >View</Link>
+                <Link href={certificate.link}>View</Link>
               </div>
             </CardHeader>
           </Card>

@@ -14,19 +14,16 @@ import dynamic from "next/dynamic";
  * only loads when this page is visited.
  */
 
-const Experience = dynamic(
-  () => import("@/components/World/Experience"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-screen bg-black flex items-center justify-center">
-        <div className="text-white/50 font-mono text-sm animate-pulse">
-          Loading the Multiverse...
-        </div>
+const Experience = dynamic(() => import("@/components/World/Experience"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-screen bg-black flex items-center justify-center">
+      <div className="text-white/50 font-mono text-sm animate-pulse">
+        Loading the Multiverse...
       </div>
-    ),
-  }
-);
+    </div>
+  ),
+});
 
 export default function MultiversePage() {
   return (

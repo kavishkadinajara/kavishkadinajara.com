@@ -3,6 +3,7 @@
 import { Preload, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+
 import { updateScroll } from "./scrollStore";
 
 // World components
