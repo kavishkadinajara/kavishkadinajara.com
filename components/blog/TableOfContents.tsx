@@ -59,7 +59,7 @@ export default function TableOfContents({ content }: { content: string }) {
   return (
     <nav className="sticky top-24">
       <span className="font-mono text-xs text-[#8B9EC0] tracking-widest uppercase mb-4 block">
-        // contents
+        {"// contents"}
       </span>
       <ul className="space-y-1">
         {headings.map(({ id, text, level }) => {

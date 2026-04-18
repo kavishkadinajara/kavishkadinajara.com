@@ -138,10 +138,11 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="name" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
                     Name
                   </label>
                   <input
+                    id="name"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
@@ -151,10 +152,11 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="email" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
                     Email
                   </label>
                   <input
+                    id="email"
                     name="email"
                     type="email"
                     value={form.email}
@@ -165,10 +167,11 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="message" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
                     Message
                   </label>
                   <textarea
+                    id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
