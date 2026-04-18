@@ -168,59 +168,72 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — full-screen overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            animate={{ height: "auto", opacity: 1 }}
-            className="md:hidden bg-[#0A1020]/98 backdrop-blur-md border-b border-[rgba(14,165,233,0.15)]"
-            exit={{ height: 0, opacity: 0 }}
-            initial={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="fixed inset-0 top-16 z-50 md:hidden bg-[#050810]/98 backdrop-blur-lg"
+            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            <ul className="flex flex-col px-6 py-4 gap-1">
-              {ANCHOR_LINKS.map((link) => {
+            <ul className="flex flex-col px-6 pt-6 gap-1">
+              {ANCHOR_LINKS.map((link, i) => {
                 const isActive = isHome && activeSection === link.href.replace("#", "");
                 return (
-                  <li key={link.href}>
+                  <motion.li
+                    key={link.href}
+                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: 30 }}
+                    transition={{ delay: i * 0.05, duration: 0.2 }}
+                  >
                     <button
-                      className={`w-full text-left py-3 px-2 font-body text-sm rounded-lg transition-colors ${
+                      className={`w-full text-left py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                         isActive
-                          ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.08)]"
-                          : "text-[#8B9EC0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.03)]"
+                          ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
+                          : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                       }`}
                       onClick={() => handleAnchor(link.href)}
                     >
                       {link.label}
                     </button>
-                  </li>
+                  </motion.li>
                 );
               })}
-              <li>
+              <motion.li
+                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 30 }}
+                transition={{ delay: ANCHOR_LINKS.length * 0.05, duration: 0.2 }}
+              >
                 <Link
-                  className={`block py-3 px-2 font-body text-sm rounded-lg transition-colors ${
+                  className={`block py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                     isBlogActive
-                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.08)]"
-                      : "text-[#8B9EC0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.03)]"
+                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
+                      : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                   }`}
                   href="/blog"
                   onClick={() => setMobileOpen(false)}
                 >
                   Blog
                 </Link>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 30 }}
+                transition={{ delay: (ANCHOR_LINKS.length + 1) * 0.05, duration: 0.2 }}
+              >
                 <button
-                  className={`w-full text-left py-3 px-2 font-body text-sm rounded-lg transition-colors ${
+                  className={`w-full text-left py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                     isHome && activeSection === "contact"
-                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.08)]"
-                      : "text-[#8B9EC0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.03)]"
+                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
+                      : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                   }`}
                   onClick={() => handleAnchor("#contact")}
                 >
                   Contact
                 </button>
-              </li>
+              </motion.li>
             </ul>
           </motion.div>
         )}
