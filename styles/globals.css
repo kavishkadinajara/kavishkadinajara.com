@@ -394,6 +394,81 @@
   color: var(--text-muted);
 }
 
+/* ─── CUSTOM CURSOR ─── */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, [role="button"], input, textarea, select, label { cursor: none; }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  pointer-events: none;
+  z-index: 9999;
+  margin: -3px 0 0 -3px;
+  transition: opacity 0.2s, width 0.15s, height 0.15s, background 0.15s;
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(14, 165, 233, 0.5);
+  pointer-events: none;
+  z-index: 9998;
+  margin: -15px 0 0 -15px;
+  transition: opacity 0.2s, width 0.2s, height 0.2s, border-color 0.2s;
+}
+
+.cursor-dot.cursor-hover {
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 14px var(--accent-cyan);
+}
+
+.cursor-ring.cursor-hover {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-color: rgba(6, 182, 212, 0.7);
+}
+
+.cursor-dot.cursor-clicked {
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: #fff;
+}
+
+.cursor-ring.cursor-clicked {
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border-color: #fff;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ─── TILT CARD ─── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform;
+}
+
 /* ─── NAV ACTIVE INDICATOR ─── */
 .nav-active {
   color: var(--accent-blue) !important;

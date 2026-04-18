@@ -3,6 +3,12 @@ import "@/styles/scrollbar.css";
 import { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
+
+const CustomCursor = dynamic(
+  () => import("@/components/portfolio/ui/CustomCursor"),
+  { ssr: false },
+);
 
 const inter = Inter({
   subsets: ["latin"],
@@ -163,6 +169,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="bg-[#050810] text-[#F0F4FF] font-body antialiased">
+        <CustomCursor />
         {children}
         <Analytics />
       </body>
