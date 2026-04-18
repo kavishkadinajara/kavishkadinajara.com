@@ -3,6 +3,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
+
 import { ZONE_RANGES } from "./CameraRig";
 import { scrollStore } from "./scrollStore";
 

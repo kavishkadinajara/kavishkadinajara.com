@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-    FaEnvelope,
-    FaInfoCircle,
-    FaLock,
-    FaRegClock,
-    FaRegEdit,
+  FaEnvelope,
+  FaInfoCircle,
+  FaLock,
+  FaRegClock,
+  FaRegEdit,
 } from "react-icons/fa";
 
 import { SparklesPreview } from "@/components/SparklesPreview";
@@ -35,7 +35,9 @@ export default function PrivacyPolicyPage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.3 }}
             >
-              {FaInfoCircle({ className: "text-xl text-blue-500 inline-block mr-2" })}
+              {FaInfoCircle({
+                className: "text-xl text-blue-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Information We Collect
               </h2>
@@ -57,7 +59,9 @@ export default function PrivacyPolicyPage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.5 }}
             >
-              {FaEnvelope({ className: "text-xl text-green-500 inline-block mr-2" })}
+              {FaEnvelope({
+                className: "text-xl text-green-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 How We Use Your Information
               </h2>
@@ -92,7 +96,9 @@ export default function PrivacyPolicyPage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.9 }}
             >
-              {FaRegClock({ className: "text-xl text-yellow-500 inline-block mr-2" })}
+              {FaRegClock({
+                className: "text-xl text-yellow-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Data Retention
               </h2>
@@ -109,7 +115,9 @@ export default function PrivacyPolicyPage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 1.1 }}
             >
-              {FaRegEdit({ className: "text-xl text-purple-500 inline-block mr-2" })}
+              {FaRegEdit({
+                className: "text-xl text-purple-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Your Rights
               </h2>

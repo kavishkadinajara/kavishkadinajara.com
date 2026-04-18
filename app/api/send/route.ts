@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { success: false, message: "Please provide a valid email address" },
@@ -110,6 +111,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("❌ Contact form API error:", error);
+
     return NextResponse.json(
       {
         success: false,

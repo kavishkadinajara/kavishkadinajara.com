@@ -28,9 +28,7 @@ const Footer = () => {
 
             {/* Copyright Text */}
             <div>
-              <p className="text-sm">
-                Copyright © 2025 | All Rights Reserved.
-              </p>
+              <p className="text-sm">Copyright © 2025 | All Rights Reserved.</p>
             </div>
 
             {/* Links and Social Icons */}

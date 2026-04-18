@@ -47,11 +47,11 @@ const DemoView: React.FC<DemoViewProps> = ({ youtubeLink }) => {
       </div>
 
       <Modal
-        size="lg" // Increased modal size
         backdrop={backdrop}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
         className="max-w-5xl" // Optional: further limit modal size if needed
+        isOpen={isOpen}
+        size="lg" // Increased modal size
+        onClose={() => setIsOpen(false)}
       >
         <ModalContent>
           <>

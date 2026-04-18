@@ -8,8 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import Skills from "./Skills";
-
-import { ParallaxScrollSecondDemo } from "@/components/ParallaxScrollSecondDemo";
 import SimpleGallery from "./SimpleGallery";
 
 const AboutMe = () => {

@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-    FaGavel,
-    FaLock,
-    FaRegClock,
-    FaRegEdit,
-    FaUserShield,
+  FaGavel,
+  FaLock,
+  FaRegClock,
+  FaRegEdit,
+  FaUserShield,
 } from "react-icons/fa";
 
 import { SparklesPreview } from "@/components/SparklesPreview";
@@ -35,7 +35,9 @@ export default function TermsOfServicePage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.3 }}
             >
-              {FaGavel({ className: "text-xl text-blue-500 inline-block mr-2" })}
+              {FaGavel({
+                className: "text-xl text-blue-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Acceptance of Terms
               </h2>
@@ -52,7 +54,9 @@ export default function TermsOfServicePage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.5 }}
             >
-              {FaUserShield({ className: "text-xl text-green-500 inline-block mr-2" })}
+              {FaUserShield({
+                className: "text-xl text-green-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 User Responsibilities
               </h2>
@@ -87,7 +91,9 @@ export default function TermsOfServicePage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 0.9 }}
             >
-              {FaRegClock({ className: "text-xl text-yellow-500 inline-block mr-2" })}
+              {FaRegClock({
+                className: "text-xl text-yellow-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Modifications to Service
               </h2>
@@ -104,7 +110,9 @@ export default function TermsOfServicePage() {
               initial={{ opacity: 0 }}
               transition={{ delay: 1.1 }}
             >
-              {FaRegEdit({ className: "text-xl text-purple-500 inline-block mr-2" })}
+              {FaRegEdit({
+                className: "text-xl text-purple-500 inline-block mr-2",
+              })}
               <h2 className="text-2xl font-semibold inline-block">
                 Termination
               </h2>
