@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+
 import SectionTitle from "@/components/portfolio/ui/SectionTitle";
 
 const STATS = [
@@ -10,66 +12,129 @@ const STATS = [
   { value: "Top 5",label: "Hackathon Rank"   },
 ];
 
-const codeLines = [
-  { token: "const", rest: " kavishka = {", color: "text-[#0EA5E9]" },
-  { token: "  location:",  rest: ' "Galle, Sri Lanka 🇱🇰",',   color: "text-[#8B9EC0]" },
+const CODE_LINES = [
+  { token: "const", rest: " kavishka = {",                    color: "text-[#0EA5E9]"  },
+  { token: "  location:",  rest: ' "Galle, Sri Lanka 🇱🇰",',  color: "text-[#8B9EC0]" },
   { token: "  role:",      rest: ' "Associate Software Engineer",', color: "text-[#8B9EC0]" },
-  { token: "  company:",   rest: ' "Agrithmics (Pvt) Ltd",',    color: "text-[#8B9EC0]" },
+  { token: "  company:",   rest: ' "Agrithmics (Pvt) Ltd",',   color: "text-[#8B9EC0]" },
   { token: "  education:", rest: ' "HND SE @ NIBM (GPA: 3.81)",', color: "text-[#8B9EC0]" },
-  { token: "  interests:", rest: " [",                           color: "text-[#8B9EC0]" },
-  { token: "   ",          rest: ' "Mathematics", "Physics",',   color: "text-[#10B981]" },
+  { token: "  interests:", rest: " [",                          color: "text-[#8B9EC0]" },
+  { token: "   ",          rest: ' "Mathematics", "Physics",',  color: "text-[#10B981]" },
   { token: "   ",          rest: ' "Rugby 🏉", "Photography 📸",', color: "text-[#10B981]" },
-  { token: "   ",          rest: ' "Reading"',                   color: "text-[#10B981]" },
-  { token: "  ],",         rest: "",                             color: "text-[#8B9EC0]" },
+  { token: "   ",          rest: ' "Reading"',                  color: "text-[#10B981]" },
+  { token: "  ],",         rest: "",                            color: "text-[#8B9EC0]" },
   { token: "  currently:", rest: ' "Building AgriGen ERP + FYP"', color: "text-[#8B9EC0]" },
-  { token: "}",            rest: "",                             color: "text-[#0EA5E9]" },
+  { token: "}",            rest: "",                            color: "text-[#0EA5E9]"  },
 ];
 
+const FULL_LINES = CODE_LINES.map((l) => l.token + l.rest);
+
+function TerminalTyper({ onDone }: { onDone?: () => void }) {
+  const [linesDone, setLinesDone] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const doneRef = useRef(false);
+
+  useEffect(() => {
+    if (linesDone >= FULL_LINES.length) {
+      if (!doneRef.current) { doneRef.current = true; onDone?.(); }
+      return;
+    }
+
+    const target = FULL_LINES[linesDone];
+    if (currentText.length < target.length) {
+      const t = setTimeout(() => setCurrentText(target.slice(0, currentText.length + 1)), 18);
+      return () => clearTimeout(t);
+    } else {
+      const t = setTimeout(() => { setLinesDone((l) => l + 1); setCurrentText(""); }, 40);
+      return () => clearTimeout(t);
+    }
+  }, [linesDone, currentText, onDone]);
+
+  return (
+    <div className="space-y-1 overflow-x-auto">
+      {CODE_LINES.map((line, i) => {
+        const fullText = line.token + line.rest;
+        let displayToken = "";
+        let displayRest  = "";
+
+        if (i < linesDone) {
+          displayToken = line.token;
+          displayRest  = line.rest;
+        } else if (i === linesDone) {
+          const typed = currentText;
+          displayToken = typed.slice(0, line.token.length);
+          displayRest  = typed.slice(line.token.length);
+        }
+
+        const isTyping   = i === linesDone;
+        const isVisible  = i <= linesDone;
+
+        if (!isVisible) return null;
+
+        return (
+          <div
+            key={i}
+            className="flex font-mono text-sm md:text-base whitespace-nowrap"
+          >
+            <span className="text-[#0EA5E9] mr-1 select-none w-6 text-right shrink-0 text-xs opacity-40">
+              {i + 1}
+            </span>
+            <span className="ml-3">
+              <span className={line.color}>{displayToken}</span>
+              <span className="text-[#F0F4FF]">{displayRest}</span>
+              {isTyping && currentText.length < fullText.length && (
+                <span className="typewriter-cursor" aria-hidden="true" />
+              )}
+            </span>
+          </div>
+        );
+      })}
+      {/* blinking cursor after done */}
+      {linesDone >= FULL_LINES.length && (
+        <div className="flex font-mono text-sm">
+          <span className="w-6 mr-1 shrink-0" />
+          <span className="ml-3">
+            <span className="typewriter-cursor" aria-hidden="true" />
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function About() {
+  const blockRef = useRef<HTMLDivElement>(null);
+  const inView   = useInView(blockRef, { once: true, margin: "-100px" });
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    if (inView && !started) setStarted(true);
+  }, [inView, started]);
+
   return (
     <section id="about" className="relative py-24 bg-[#0A1020]">
-      {/* top circuit divider */}
       <div className="circuit-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionTitle prefix="// about_me.ts" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* Code block */}
+          {/* Terminal code block */}
           <motion.div
+            ref={blockRef}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="code-block p-6 md:p-8 rounded-xl"
           >
-            {/* dots */}
             <div className="flex gap-2 mb-5">
               <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
               <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
               <span className="w-3 h-3 rounded-full bg-[#28C840]" />
             </div>
 
-            <div className="space-y-1 overflow-x-auto">
-              {codeLines.map((line, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.04, duration: 0.3 }}
-                  className="flex font-mono text-sm md:text-base whitespace-nowrap"
-                >
-                  <span className="text-[#0EA5E9] mr-1 select-none w-6 text-right shrink-0 text-xs opacity-40">
-                    {i + 1}
-                  </span>
-                  <span className="ml-3">
-                    <span className={line.color}>{line.token}</span>
-                    <span className="text-[#F0F4FF]">{line.rest}</span>
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+            {started && <TerminalTyper />}
           </motion.div>
 
           {/* Bio + stats */}
@@ -85,8 +150,9 @@ export default function About() {
                 I&apos;m a software engineer based in{" "}
                 <span className="text-[#F0F4FF]">Galle, Sri Lanka</span>, with
                 a deep passion for where science meets code. I find the same
-                elegance in a well-structured algorithm that I find in a physical
-                law — both describe the universe with beautiful precision.
+                elegance in a well-structured algorithm that I find in a
+                physical law — both describe the universe with beautiful
+                precision.
               </p>
               <p className="font-body text-[#8B9EC0] leading-relaxed text-base md:text-lg">
                 Currently at{" "}
@@ -102,7 +168,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* Stats row */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
               {STATS.map((stat, i) => (
                 <motion.div
