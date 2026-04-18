@@ -21,6 +21,8 @@ function GradientPlaceholder({ tag }: { tag: string }) {
     database:     "from-[rgba(16,185,129,0.15)] to-[rgba(16,185,129,0.03)]",
     architecture: "from-[rgba(139,92,246,0.15)] to-[rgba(139,92,246,0.03)]",
     ai:           "from-[rgba(236,72,153,0.15)] to-[rgba(236,72,153,0.03)]",
+    research:     "from-[rgba(251,191,36,0.15)]  to-[rgba(251,191,36,0.03)]",
+    nlp:          "from-[rgba(236,72,153,0.15)]  to-[rgba(236,72,153,0.03)]",
   };
   const gradient = colorMap[tag?.toLowerCase()] ?? "from-[rgba(14,165,233,0.1)] to-[rgba(6,182,212,0.03)]";
 
