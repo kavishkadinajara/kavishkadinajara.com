@@ -32,7 +32,7 @@ They solve different problems.
 
 ## Dapper in Practice — What It Looks Like
 
-A typical Dapper repository method in AgriGen:
+A typical Dapper repository method in Verdant:
 
 ```csharp
 public async Task<IEnumerable<InvoiceSummaryDto>> GetInvoiceSummaryAsync(
@@ -163,4 +163,4 @@ Dapper is the right choice when:
 
 Use **Dapper** when you're building business software with complex reporting requirements. Use **EF Core** when you're building a product where schema evolves rapidly and query complexity is low.
 
-In AgriGen, we use Dapper exclusively. With Field P&L reports spanning 5 joins, CTEs, and dynamic pivots — EF Core would generate either terrible SQL or force us to use raw SQL anyway. Might as well own it from the start.
+In Verdant, we use Dapper exclusively. With Field P&L reports spanning 5 joins, CTEs, and dynamic pivots — EF Core would generate either terrible SQL or force us to use raw SQL anyway. Might as well own it from the start.

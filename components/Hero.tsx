@@ -112,7 +112,7 @@ const HeroSection: React.FC = () => {
 
             <div className="mt-8 flex justify-center lg:justify-start space-x-6">
               {[
-                { href: "#", iconClass: "fab fa-linkedin" },
+                { href: "https://www.linkedin.com/in/kavishka-dinajara", iconClass: "fab fa-linkedin" },
                 { href: "#", iconClass: "fab fa-github" },
               ].map((social, index) => (
                 <motion.a
@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                 alt="Kavishka Dinajara"
                 layout="fill"
                 objectFit="cover"
-                src="/me.jpg"
+                src="/kavishkadinajara.jpeg"
               />
             </motion.div>
           </motion.div>

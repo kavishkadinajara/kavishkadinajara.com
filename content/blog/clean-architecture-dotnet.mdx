@@ -2,7 +2,7 @@
 title: "Clean Architecture in .NET Core — How I Actually Use It"
 date: "2025-04-10"
 tags: ["dotnet", "architecture", "backend", "csharp"]
-summary: "A practical breakdown of how Clean Architecture is implemented in AgriGen ERP — layers, interfaces, dependency injection, and real code examples."
+summary: "A practical breakdown of how Clean Architecture is implemented in Verdant ERP — layers, interfaces, dependency injection, and real code examples."
 coverImage: null
 published: true
 ---
@@ -11,13 +11,13 @@ Clean Architecture gets talked about a lot. Most articles show you perfect diagr
 
 ## The Layer Structure We Use
 
-In AgriGen ERP, every feature module follows this four-layer pattern:
+In Verdant ERP, every feature module follows this four-layer pattern:
 
 ```
-AgriGen.Domain          ← Entities, value objects, interfaces
-AgriGen.Application     ← Use cases, DTOs, service interface
-AgriGen.Infrastructure  ← Dapper repos, SQL, external services
-AgriGen.API             ← Controllers, middleware, DI wiring
+Verdant.Domain          ← Entities, value objects, interfaces
+Verdant.Application     ← Use cases, DTOs, service interface
+Verdant.Infrastructure  ← Dapper repos, SQL, external services
+Verdant.API             ← Controllers, middleware, DI wiring
 ```
 
 The rule is simple: **each layer only knows about layers inside it**. Domain knows nothing. Application knows Domain. Infrastructure knows Application + Domain. API knows everything — but only to wire things up.
@@ -27,8 +27,8 @@ The rule is simple: **each layer only knows about layers inside it**. Domain kno
 The Domain layer holds your business entities and repository interfaces. No Dapper. No Entity Framework. No HTTP clients. Nothing.
 
 ```csharp
-// Domain/Entities/GreenLeaf.cs
-public class GreenLeaf
+// Domain/Entities/Harvest.cs
+public class Harvest
 {
     public int Id { get; private set; }
     public int EstateId { get; private set; }
@@ -45,12 +45,12 @@ public class GreenLeaf
 ```
 
 ```csharp
-// Domain/Interfaces/IGreenLeafRepository.cs
-public interface IGreenLeafRepository
+// Domain/Interfaces/IHarvestRepository.cs
+public interface IHarvestRepository
 {
-    Task<GreenLeaf?> GetByIdAsync(int id);
-    Task<IEnumerable<GreenLeaf>> GetByEstateAsync(int estateId, DateRange range);
-    Task<int> CreateAsync(GreenLeaf leaf);
+    Task<Harvest?> GetByIdAsync(int id);
+    Task<IEnumerable<Harvest>> GetByEstateAsync(int estateId, DateRange range);
+    Task<int> CreateAsync(Harvest leaf);
 }
 ```
 
@@ -59,15 +59,15 @@ The interface lives in Domain. The implementation lives in Infrastructure. This 
 ## Application Layer — Business Logic Lives Here
 
 ```csharp
-// Application/UseCases/GreenLeaf/RecordHarvestCommand.cs
+// Application/UseCases/Harvest/RecordHarvestCommand.cs
 public record RecordHarvestCommand(int EstateId, decimal WeightKg, DateTime HarvestDate);
 
 public class RecordHarvestHandler
 {
-    private readonly IGreenLeafRepository _repo;
+    private readonly IHarvestRepository _repo;
     private readonly IUnitOfWork _uow;
 
-    public RecordHarvestHandler(IGreenLeafRepository repo, IUnitOfWork uow)
+    public RecordHarvestHandler(IHarvestRepository repo, IUnitOfWork uow)
     {
         _repo = repo;
         _uow = uow;
@@ -75,7 +75,7 @@ public class RecordHarvestHandler
 
     public async Task<int> HandleAsync(RecordHarvestCommand cmd)
     {
-        var leaf = GreenLeaf.Create(cmd.EstateId, cmd.WeightKg, cmd.HarvestDate);
+        var leaf = Harvest.Create(cmd.EstateId, cmd.WeightKg, cmd.HarvestDate);
         var id = await _repo.CreateAsync(leaf);
         await _uow.CommitAsync();
         return id;
@@ -88,36 +88,36 @@ No SQL here. No `SqlConnection`. Just pure business logic calling interfaces.
 ## Infrastructure Layer — Where Dapper Lives
 
 ```csharp
-// Infrastructure/Repositories/GreenLeafRepository.cs
-public class GreenLeafRepository : IGreenLeafRepository
+// Infrastructure/Repositories/HarvestRepository.cs
+public class HarvestRepository : IHarvestRepository
 {
     private readonly IDbConnectionFactory _connFactory;
 
-    public GreenLeafRepository(IDbConnectionFactory connFactory)
+    public HarvestRepository(IDbConnectionFactory connFactory)
     {
         _connFactory = connFactory;
     }
 
-    public async Task<GreenLeaf?> GetByIdAsync(int id)
+    public async Task<Harvest?> GetByIdAsync(int id)
     {
         using var conn = await _connFactory.CreateAsync();
-        const string sql = "SELECT * FROM GreenLeaf WHERE Id = @Id AND IsDeleted = 0";
-        return await conn.QueryFirstOrDefaultAsync<GreenLeaf>(sql, new { Id = id });
+        const string sql = "SELECT * FROM Harvest WHERE Id = @Id AND IsDeleted = 0";
+        return await conn.QueryFirstOrDefaultAsync<Harvest>(sql, new { Id = id });
     }
 
-    public async Task<IEnumerable<GreenLeaf>> GetByEstateAsync(int estateId, DateRange range)
+    public async Task<IEnumerable<Harvest>> GetByEstateAsync(int estateId, DateRange range)
     {
         using var conn = await _connFactory.CreateAsync();
         const string sql = @"
             SELECT gl.*, e.EstateName
-            FROM GreenLeaf gl
+            FROM Harvest gl
             INNER JOIN Estate e ON e.Id = gl.EstateId
             WHERE gl.EstateId = @EstateId
               AND gl.HarvestDate BETWEEN @From AND @To
               AND gl.IsDeleted = 0
             ORDER BY gl.HarvestDate DESC";
 
-        return await conn.QueryAsync<GreenLeaf>(sql, new
+        return await conn.QueryAsync<Harvest>(sql, new
         {
             EstateId = estateId,
             From = range.Start,
@@ -133,7 +133,7 @@ Dapper is **perfect** for Clean Architecture because it doesn't try to own your 
 
 ```csharp
 // API/Program.cs
-builder.Services.AddScoped<IGreenLeafRepository, GreenLeafRepository>();
+builder.Services.AddScoped<IHarvestRepository, HarvestRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<RecordHarvestHandler>();
 builder.Services.AddSingleton<IDbConnectionFactory, SqlConnectionFactory>();
@@ -155,9 +155,9 @@ With this structure, you can unit test handlers by mocking the repository interf
 [Test]
 public async Task RecordHarvest_ShouldReturnId_WhenValid()
 {
-    var mockRepo = new Mock<IGreenLeafRepository>();
+    var mockRepo = new Mock<IHarvestRepository>();
     var mockUow = new Mock<IUnitOfWork>();
-    mockRepo.Setup(r => r.CreateAsync(It.IsAny<GreenLeaf>())).ReturnsAsync(42);
+    mockRepo.Setup(r => r.CreateAsync(It.IsAny<Harvest>())).ReturnsAsync(42);
 
     var handler = new RecordHarvestHandler(mockRepo.Object, mockUow.Object);
     var result = await handler.HandleAsync(new RecordHarvestCommand(1, 125.5m, DateTime.Today));
@@ -168,4 +168,4 @@ public async Task RecordHarvest_ShouldReturnId_WhenValid()
 
 No database. No HTTP. Fast, deterministic, reliable.
 
-Clean Architecture is overhead when your project is small. But for AgriGen — which spans 7+ modules, 3 companies, and hundreds of SQL operations — it's been the difference between maintainable code and chaos.
+Clean Architecture is overhead when your project is small. But for Verdant — which spans 7+ modules, 3 companies, and hundreds of SQL operations — it's been the difference between maintainable code and chaos.
