@@ -38,8 +38,19 @@ export function updateScroll(deltaY: number) {
 /**
  * Call this every frame (inside useFrame) to apply damping.
  * Returns the current smoothed offset.
+ *
+ * When the user has `prefers-reduced-motion: reduce`, we skip the
+ * exponential damping and snap directly to target. This makes the
+ * camera ride a series of jump-cuts rather than a continuous fly-through,
+ * which is far less likely to trigger motion sickness.
  */
 export function dampScroll(delta: number): number {
+  if (typeof window !== "undefined") {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      scrollStore.offset = scrollStore.target;
+      return scrollStore.offset;
+    }
+  }
   const dampingFactor = 1 - Math.pow(0.001, delta);
   scrollStore.offset +=
     (scrollStore.target - scrollStore.offset) * dampingFactor;

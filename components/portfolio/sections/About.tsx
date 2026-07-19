@@ -23,7 +23,7 @@ const CODE_LINES = [
   { token: "   ",          rest: ' "Rugby 🏉", "Photography 📸",', color: "text-[#10B981]" },
   { token: "   ",          rest: ' "Reading"',                  color: "text-[#10B981]" },
   { token: "  ],",         rest: "",                            color: "text-[#8B9EC0]" },
-  { token: "  currently:", rest: ' "Building AgriGen ERP + FYP"', color: "text-[#8B9EC0]" },
+  { token: "  currently:", rest: ' "Building Verdant ERP + FYP"', color: "text-[#8B9EC0]" },
   { token: "}",            rest: "",                            color: "text-[#0EA5E9]"  },
 ];
 
@@ -157,7 +157,7 @@ export default function About() {
               <p className="font-body text-[#8B9EC0] leading-relaxed text-base md:text-lg">
                 Currently at{" "}
                 <span className="text-[#0EA5E9]">Agrithmics (Pvt) Ltd</span>{" "}
-                building the AgriGen ERP platform — a full-scale tea &amp;
+                building the Verdant ERP platform — a full-scale tea &amp;
                 plantation management system. My final year project explores
                 edge-based Small Language Models for semantic file transformation.
               </p>

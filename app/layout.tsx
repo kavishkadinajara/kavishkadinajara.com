@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     ".NET Core Developer",
     "C# Developer",
     "ERP Developer",
-    "AgriGen ERP",
+    "Verdant ERP",
     "Agrithmics",
     "Portfolio",
     "Galle Sri Lanka",
@@ -156,7 +156,7 @@ export default function RootLayout({
               },
               sameAs: [
                 "https://github.com/kavishkadinajara",
-                "https://linkedin.com/in/kavishkadinajara",
+                "https://www.linkedin.com/in/kavishka-dinajara",
               ],
               knowsAbout: [
                 "React", "Next.js", ".NET Core", "C#", "ERP Systems",

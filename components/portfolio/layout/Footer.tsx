@@ -3,7 +3,7 @@ import { IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-reac
 
 const SOCIAL = [
   { icon: IconBrandGithub,   href: "https://github.com/KavishkaDinajara",      label: "GitHub"   },
-  { icon: IconBrandLinkedin, href: "https://linkedin.com/in/KavishkaDinajara", label: "LinkedIn" },
+  { icon: IconBrandLinkedin, href: "https://www.linkedin.com/in/kavishka-dinajara", label: "LinkedIn" },
   { icon: IconMail,          href: "mailto:hello@kavishkadinajara.com",         label: "Email"    },
 ];
 
