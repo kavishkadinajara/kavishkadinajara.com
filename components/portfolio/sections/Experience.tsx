@@ -10,7 +10,7 @@ const EXPERIENCE = [
     period:  "May 2025 – Present",
     side:    "right" as const,
     bullets: [
-      "Led full-stack development of AgriGen ERP — enterprise tea/plantation management platform (React + MUI v4, .NET Core C#, Dapper, SQL Server)",
+      "Led full-stack development of Verdant ERP — enterprise tea/plantation management platform (React + MUI v4, .NET Core C#, Dapper, SQL Server)",
       "Architected Multi-Pack Invoice feature using Bridge Table pattern — backward-compatible schema changes across 7 screens with vw_InvoicePackSummary unified view",
       "Built complex SQL stored procedures + CTEs for KPI dashboards and Field-wise P&L reporting with 17-file React component refactor",
       "Debugged critical production timezone bug (IST→UTC toISOString() shift) causing Green Leaf weight deduction errors",
@@ -24,7 +24,7 @@ const EXPERIENCE = [
     period:  "Dec 2024 – May 2025",
     side:    "left" as const,
     bullets: [
-      "Contributed to AgriGen ERP, Cargills Supplier Chain, and Balangoda Plantation Procurement System",
+      "Contributed to Verdant ERP, Cargills Supplier Chain, and Balangoda Plantation Procurement System",
       "Built React UI components + .NET backend APIs via Axios",
       "Implemented Redis caching + RabbitMQ data load processing",
     ],

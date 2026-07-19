@@ -27,8 +27,8 @@ const CONTACT_LINKS = [
   {
     icon: IconBrandLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/KavishkaDinajara",
-    href: "https://linkedin.com/in/KavishkaDinajara",
+    value: "linkedin.com/in/kavishka-dinajara",
+    href: "https://www.linkedin.com/in/kavishka-dinajara",
     color: "text-[#06B6D4]",
     border: "border-[rgba(6,182,212,0.2)]",
     bg: "bg-[rgba(6,182,212,0.08)]",

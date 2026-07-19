@@ -23,7 +23,7 @@ const PROJECTS = [
     liveUrl: "https://fileflow-one.vercel.app",
   },
   // {
-  //   title: "AgriGen ERP",
+  //   title: "Verdant ERP",
   //   tag: "Enterprise · ERP",
   //   description:
   //     "Full-stack tea estate management ERP for Sri Lanka + Bangladesh. React + .NET Core + SQL Server. Multi-pack invoicing, KPI dashboards, Field P&L, estate-division hierarchy reporting.",

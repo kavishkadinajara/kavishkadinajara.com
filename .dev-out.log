@@ -2,13 +2,29 @@
 > next-app-template@0.0.1 dev E:\My Projects\My Projects\kavi_profito
 > next dev
 
- ⚠ Port 3000 is in use, trying 3001 instead.
   ▲ Next.js 14.2.3
-  - Local:        http://localhost:3001
+  - Local:        http://localhost:3000
   - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 5.3s
+ ✓ Ready in 9.2s
  ○ Compiling / ...
- ✓ Compiled / in 2.2s (1346 modules)
- GET / 200 in 2944ms
+ ✓ Compiled / in 8.9s (1400 modules)
+ GET / 200 in 9327ms
+ ○ Compiling /multiverse ...
+ ✓ Compiled /multiverse in 9.2s (2524 modules)
+ GET /multiverse 200 in 9294ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1925ms (2116 modules)
+ GET /multiverse 404 in 2179ms
+ GET /_next/static/css/app/layout.css?v=1778437387297 404 in 72ms
+ GET /_next/static/chunks/app/error.js 404 in 68ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 72ms
+ GET /_next/static/chunks/main-app.js?v=1778437387297 404 in 74ms
+ GET /_next/static/chunks/app/loading.js 404 in 78ms
+ GET /multiverse 404 in 45ms
+ GET /_next/static/css/app/layout.css?v=1778437399949 404 in 86ms
+ GET /_next/static/chunks/app/error.js 404 in 86ms
+ GET /_next/static/chunks/main-app.js?v=1778437399949 404 in 91ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 95ms
+ GET /_next/static/chunks/app/loading.js 404 in 96ms

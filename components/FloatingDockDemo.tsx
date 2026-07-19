@@ -21,7 +21,7 @@ export function FloatingDockDemo() {
     {
       title: "Linkind",
       icon: <IconBrandLinkedin className="w-6 h-6 text-neutral-500" />, // Uniform sizing
-      href: "https://linkedin.com/in/kavishka-dinajara-502b011b3",
+      href: "https://www.linkedin.com/in/kavishka-dinajara",
     },
     {
       title: "Facebook",
