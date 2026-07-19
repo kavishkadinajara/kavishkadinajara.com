@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                 alt="Kavishka Dinajara"
                 layout="fill"
                 objectFit="cover"
-                src="/me.jpg"
+                src="/kavishkadinajara.jpeg"
               />
             </motion.div>
           </motion.div>

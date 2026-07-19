@@ -1,0 +1,14 @@
+
+> next-app-template@0.0.1 dev E:\My Projects\My Projects\kavi_profito
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 5.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s (1346 modules)
+ GET / 200 in 2944ms
