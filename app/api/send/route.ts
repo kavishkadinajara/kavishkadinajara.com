@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
       subject: `Portfolio Contact from ${name}`,
       html: `
         <div style="font-family:'Inter',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0A0705;color:#F5EDE6;padding:32px;border-radius:12px;border:1px solid rgba(192,133,82,0.2)">
-          <h2 style="color:#C08552;font-size:20px;margin-top:0">New message from kavishka.dev</h2>
+          <h2 style="color:#C08552;font-size:20px;margin-top:0">New message from kavishkadinajara.com</h2>
           <table style="width:100%;border-collapse:collapse;margin:20px 0">
             <tr><td style="padding:8px 0;color:#A8927F;font-size:13px;width:80px">Name</td><td style="padding:8px 0;color:#F5EDE6">${name}</td></tr>
             <tr><td style="padding:8px 0;color:#A8927F;font-size:13px">Reply-to</td><td style="padding:8px 0;color:#C08552"><a href="mailto:${email}" style="color:#C08552">${email}</a></td></tr>

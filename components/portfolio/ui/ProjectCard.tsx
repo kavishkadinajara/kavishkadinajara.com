@@ -12,6 +12,7 @@ interface ProjectCardProps {
   badge: string;
   badgeVariant?: "blue" | "cyan" | "green" | "yellow" | "purple";
   liveUrl?: string;
+  liveLabel?: string;
   githubUrl?: string;
   index?: number;
 }
@@ -39,6 +40,7 @@ export default function ProjectCard({
   badge,
   badgeVariant = "blue",
   liveUrl,
+  liveLabel = "Live",
   githubUrl,
   index = 0,
 }: ProjectCardProps) {
@@ -82,7 +84,7 @@ export default function ProjectCard({
                 className="flex items-center gap-1.5 text-xs font-mono text-[#C08552] hover:text-[#D4A373] transition-colors"
               >
                 <IconExternalLink size={12} />
-                Live
+                {liveLabel}
               </a>
             )}
             {githubUrl && (

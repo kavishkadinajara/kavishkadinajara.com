@@ -4,17 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 import SectionTitle from "@/components/portfolio/ui/SectionTitle";
+import { PROJECTS } from "@/data/projects";
 
 const STATS = [
-  { value: "1.5+", label: "Years Experience" },
-  { value: "10+",  label: "Projects Built"   },
+  { value: "2",    label: "Years Experience" },
+  { value: String(PROJECTS.length), label: "Projects Built" },
   { value: "3.81", label: "GPA (HND)"        },
   { value: "Top 5",label: "Hackathon Rank"   },
 ];
 
 const CODE_LINES = [
   { token: "const", rest: " kavishka = {",                    color: "text-[#C08552]"  },
-  { token: "  location:",  rest: ' "Galle, Sri Lanka 🇱🇰",',  color: "text-[#A8927F]" },
+  { token: "  location:",  rest: ' "Colombo, Sri Lanka 🇱🇰",',  color: "text-[#A8927F]" },
   { token: "  role:",      rest: ' "Associate Software Engineer",', color: "text-[#A8927F]" },
   { token: "  company:",   rest: ' "Agrithmics (Pvt) Ltd",',   color: "text-[#A8927F]" },
   { token: "  education:", rest: ' "HND SE @ NIBM (GPA: 3.81)",', color: "text-[#A8927F]" },
@@ -23,7 +24,7 @@ const CODE_LINES = [
   { token: "   ",          rest: ' "Rugby 🏉", "Photography 📸",', color: "text-[#10B981]" },
   { token: "   ",          rest: ' "Reading"',                  color: "text-[#10B981]" },
   { token: "  ],",         rest: "",                            color: "text-[#A8927F]" },
-  { token: "  currently:", rest: ' "Building Verdant ERP + FYP"', color: "text-[#A8927F]" },
+  { token: "  currently:", rest: ' "Building AgriGen ERP + FYP"', color: "text-[#A8927F]" },
   { token: "}",            rest: "",                            color: "text-[#C08552]"  },
 ];
 
@@ -148,7 +149,7 @@ export default function About() {
             <div className="space-y-4">
               <p className="font-body text-[#A8927F] leading-relaxed text-base md:text-lg">
                 I&apos;m a software engineer based in{" "}
-                <span className="text-[#F5EDE6]">Galle, Sri Lanka</span>, with
+                <span className="text-[#F5EDE6]">Colombo, Sri Lanka</span>, with
                 a deep passion for where science meets code. I find the same
                 elegance in a well-structured algorithm that I find in a
                 physical law — both describe the universe with beautiful
@@ -157,7 +158,7 @@ export default function About() {
               <p className="font-body text-[#A8927F] leading-relaxed text-base md:text-lg">
                 Currently at{" "}
                 <span className="text-[#C08552]">Agrithmics (Pvt) Ltd</span>{" "}
-                building the Verdant ERP platform — a full-scale tea &amp;
+                building the AgriGen ERP platform — a full-scale tea &amp;
                 plantation management system. My final year project explores
                 edge-based Small Language Models for semantic file transformation.
               </p>

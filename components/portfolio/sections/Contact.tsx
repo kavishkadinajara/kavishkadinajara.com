@@ -67,7 +67,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 bg-[#0A0705] grid-bg">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <SectionTitle prefix="ping kavishka.dev --connect" />
+        <SectionTitle prefix="ping kavishkadinajara.com --connect" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact info */}
