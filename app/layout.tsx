@@ -34,10 +34,9 @@ export const metadata: Metadata = {
     template: "%s | Kavishka Dinajara",
   },
   description:
-    "Associate Software Engineer from Sri Lanka specializing in ERP systems, AI platforms, and full-stack development with React, Next.js, and .NET Core.",
+    "Kavishka Dinajara — Associate Software Engineer in Colombo, Sri Lanka. Full-stack developer building enterprise ERP systems with React, .NET Core, SQL Server and Azure DevOps.",
   keywords: [
     "Kavishka Dinajara",
-    "Kaviska",
     "Associate Software Engineer",
     "Dinajara",
     "Software Engineer Sri Lanka",
@@ -47,10 +46,10 @@ export const metadata: Metadata = {
     ".NET Core Developer",
     "C# Developer",
     "ERP Developer",
-    "Verdant ERP",
+    "AgriGen ERP",
     "Agrithmics",
     "Portfolio",
-    "Galle Sri Lanka",
+    "Colombo Sri Lanka",
   ],
   authors: [{ name: "Kavishka Dinajara", url: "https://kavishkadinajara.com" }],
   creator: "Kavishka Dinajara",
@@ -68,13 +67,13 @@ export const metadata: Metadata = {
     url: "https://kavishkadinajara.com",
     title: "Kavishka Dinajara — Associate Software Engineer",
     description:
-      "Associate Software Engineer from Sri Lanka specializing in ERP systems, AI platforms, and full-stack development.",
+      "Kavishka Dinajara — Associate Software Engineer in Colombo, Sri Lanka. Full-stack developer building enterprise ERP systems with React, .NET Core, SQL Server and Azure DevOps.",
     siteName: "Kavishka Dinajara",
     images: [
       {
-        url: "/social-card.png",
-        width: 1200,
-        height: 630,
+        url: "/kavishkadinajara.jpeg",
+        width: 960,
+        height: 1280,
         alt: "Kavishka Dinajara — Associate Software Engineer Portfolio",
       },
     ],
@@ -84,8 +83,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kavishka Dinajara — Associate Software Engineer",
     description:
-      "Associate Software Engineer from Sri Lanka specializing in ERP systems, AI platforms, and full-stack development.",
-    images: ["/social-card.png"],
+      "Kavishka Dinajara — Associate Software Engineer in Colombo, Sri Lanka. Full-stack developer building enterprise ERP systems with React, .NET Core, SQL Server and Azure DevOps.",
+    images: ["/kavishkadinajara.jpeg"],
   },
 
   icons: {
@@ -109,10 +108,7 @@ export const metadata: Metadata = {
     },
   },
 
-  verification: {
-    google: "your-google-verification-code",
-    // yandex: "your-yandex-code",
-  },
+  // TODO: add `verification: { google: "<token>" }` once Google Search Console issues a verification code.
 
   // ✅ Category
   category: "technology",
@@ -152,7 +148,8 @@ export default function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "LK",
-                addressRegion: "Central Province",
+                addressLocality: "Colombo",
+                addressRegion: "Western Province",
               },
               sameAs: [
                 "https://github.com/kavishkadinajara",

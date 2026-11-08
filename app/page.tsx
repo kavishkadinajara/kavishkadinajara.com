@@ -4,6 +4,7 @@ import Navbar from "@/components/portfolio/layout/Navbar";
 import Hero from "@/components/portfolio/sections/Hero";
 import About from "@/components/portfolio/sections/About";
 import Experience from "@/components/portfolio/sections/Experience";
+import Education from "@/components/portfolio/sections/Education";
 import Projects from "@/components/portfolio/sections/Projects";
 import Skills from "@/components/portfolio/sections/Skills";
 import Achievements from "@/components/portfolio/sections/Achievements";
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <Education />
         <Projects />
         <Skills />
         <Achievements />

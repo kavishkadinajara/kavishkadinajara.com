@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+// NOTE: the Blog nav link is intentionally hidden until posts are published (the /blog route still exists).
 
 const ANCHOR_LINKS = [
   { label: "Home",       href: "#home"       },
@@ -20,7 +21,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const pathname  = usePathname();
   const isHome    = pathname === "/";
-  const isBlogActive = pathname.startsWith("/blog");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -112,27 +112,6 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + ANCHOR_LINKS.length * 0.05, duration: 0.4 }}
             >
-              <Link
-                href="/blog"
-                className={`relative font-body text-sm transition-colors duration-200 ${
-                  isBlogActive ? "text-[#C08552]" : "text-[#A8927F] hover:text-[#F5EDE6]"
-                }`}
-              >
-                Blog
-                {isBlogActive && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C08552] rounded-full shadow-[0_0_6px_#C08552]"
-                  />
-                )}
-              </Link>
-            </motion.li>
-
-            <motion.li
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + (ANCHOR_LINKS.length + 1) * 0.05, duration: 0.4 }}
-            >
               <button
                 onClick={() => handleAnchor("#contact")}
                 className={`relative font-body text-sm transition-colors duration-200 ${
@@ -199,24 +178,6 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: ANCHOR_LINKS.length * 0.05, duration: 0.2 }}
-              >
-                <Link
-                  href="/blog"
-                  onClick={() => setMobileOpen(false)}
-                  className={`block py-4 px-4 font-body text-base rounded-xl transition-colors border ${
-                    isBlogActive
-                      ? "text-[#C08552] bg-[rgba(192,133,82,0.1)] border-[rgba(192,133,82,0.2)]"
-                      : "text-[#D9C9BA] hover:text-[#F5EDE6] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
-                  }`}
-                >
-                  Blog
-                </Link>
-              </motion.li>
-
-              <motion.li
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (ANCHOR_LINKS.length + 1) * 0.05, duration: 0.2 }}
               >
                 <button
                   onClick={() => handleAnchor("#contact")}

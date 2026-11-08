@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { IconArrowRight, IconDownload } from "@tabler/icons-react";
 
+import { PROJECTS } from "@/data/projects";
 import HeroPhoto from "../hero/HeroPhoto";
 import HeroTerminal from "../hero/HeroTerminal";
 import MathField from "../hero/MathField";
@@ -84,7 +85,7 @@ export default function Hero() {
             >
               <span className="block text-6xl md:text-8xl lg:text-9xl text-[#F5EDE6]">
                 Kavishka
-              </span>
+              </span>{" "}
               <span className="block text-6xl md:text-8xl lg:text-9xl bg-gradient-to-r from-[#C08552] to-[#D4A373] bg-clip-text text-transparent">
                 Dinajara
               </span>
@@ -141,9 +142,9 @@ export default function Hero() {
               custom={0.85}
               className="mt-10 flex items-center gap-6 text-[#A8927F] font-mono text-xs"
             >
-              <Stat value="1+" label="years" />
+              <Stat value="2" label="years" />
               <span className="w-px h-6 bg-[rgba(192,133,82,0.25)]" />
-              <Stat value="15+" label="projects" />
+              <Stat value={String(PROJECTS.length)} label="projects" />
               <span className="w-px h-6 bg-[rgba(192,133,82,0.25)]" />
               <Stat value="4+" label="ERP modules" />
             </motion.div>

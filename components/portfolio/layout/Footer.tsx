@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Credit */}
           <p className="font-mono text-xs text-[#A8927F] text-center">
-            Built with Next.js + caffeine ☕ by Kavishka Dinajara &nbsp;·&nbsp; © 2025
+            Built with Next.js + caffeine ☕ by Kavishka Dinajara &nbsp;·&nbsp; © {new Date().getFullYear()}
           </p>
 
           {/* Socials */}
