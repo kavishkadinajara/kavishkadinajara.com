@@ -13,18 +13,18 @@ const STATS = [
 ];
 
 const CODE_LINES = [
-  { token: "const", rest: " kavishka = {",                    color: "text-[#0EA5E9]"  },
-  { token: "  location:",  rest: ' "Galle, Sri Lanka 🇱🇰",',  color: "text-[#8B9EC0]" },
-  { token: "  role:",      rest: ' "Associate Software Engineer",', color: "text-[#8B9EC0]" },
-  { token: "  company:",   rest: ' "Agrithmics (Pvt) Ltd",',   color: "text-[#8B9EC0]" },
-  { token: "  education:", rest: ' "HND SE @ NIBM (GPA: 3.81)",', color: "text-[#8B9EC0]" },
-  { token: "  interests:", rest: " [",                          color: "text-[#8B9EC0]" },
+  { token: "const", rest: " kavishka = {",                    color: "text-[#C08552]"  },
+  { token: "  location:",  rest: ' "Galle, Sri Lanka 🇱🇰",',  color: "text-[#A8927F]" },
+  { token: "  role:",      rest: ' "Associate Software Engineer",', color: "text-[#A8927F]" },
+  { token: "  company:",   rest: ' "Agrithmics (Pvt) Ltd",',   color: "text-[#A8927F]" },
+  { token: "  education:", rest: ' "HND SE @ NIBM (GPA: 3.81)",', color: "text-[#A8927F]" },
+  { token: "  interests:", rest: " [",                          color: "text-[#A8927F]" },
   { token: "   ",          rest: ' "Mathematics", "Physics",',  color: "text-[#10B981]" },
   { token: "   ",          rest: ' "Rugby 🏉", "Photography 📸",', color: "text-[#10B981]" },
   { token: "   ",          rest: ' "Reading"',                  color: "text-[#10B981]" },
-  { token: "  ],",         rest: "",                            color: "text-[#8B9EC0]" },
-  { token: "  currently:", rest: ' "Building Verdant ERP + FYP"', color: "text-[#8B9EC0]" },
-  { token: "}",            rest: "",                            color: "text-[#0EA5E9]"  },
+  { token: "  ],",         rest: "",                            color: "text-[#A8927F]" },
+  { token: "  currently:", rest: ' "Building Verdant ERP + FYP"', color: "text-[#A8927F]" },
+  { token: "}",            rest: "",                            color: "text-[#C08552]"  },
 ];
 
 const FULL_LINES = CODE_LINES.map((l) => l.token + l.rest);
@@ -76,12 +76,12 @@ function TerminalTyper({ onDone }: { onDone?: () => void }) {
             key={i}
             className="flex font-mono text-sm md:text-base whitespace-nowrap"
           >
-            <span className="text-[#0EA5E9] mr-1 select-none w-6 text-right shrink-0 text-xs opacity-40">
+            <span className="text-[#C08552] mr-1 select-none w-6 text-right shrink-0 text-xs opacity-40">
               {i + 1}
             </span>
             <span className="ml-3">
               <span className={line.color}>{displayToken}</span>
-              <span className="text-[#F0F4FF]">{displayRest}</span>
+              <span className="text-[#F5EDE6]">{displayRest}</span>
               {isTyping && currentText.length < fullText.length && (
                 <span className="typewriter-cursor" aria-hidden="true" />
               )}
@@ -112,7 +112,7 @@ export default function About() {
   }, [inView, started]);
 
   return (
-    <section id="about" className="relative py-24 bg-[#0A1020]">
+    <section id="about" className="relative py-24 bg-[#140D09]">
       <div className="circuit-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -146,22 +146,22 @@ export default function About() {
             className="flex flex-col justify-center gap-6"
           >
             <div className="space-y-4">
-              <p className="font-body text-[#8B9EC0] leading-relaxed text-base md:text-lg">
+              <p className="font-body text-[#A8927F] leading-relaxed text-base md:text-lg">
                 I&apos;m a software engineer based in{" "}
-                <span className="text-[#F0F4FF]">Galle, Sri Lanka</span>, with
+                <span className="text-[#F5EDE6]">Galle, Sri Lanka</span>, with
                 a deep passion for where science meets code. I find the same
                 elegance in a well-structured algorithm that I find in a
                 physical law — both describe the universe with beautiful
                 precision.
               </p>
-              <p className="font-body text-[#8B9EC0] leading-relaxed text-base md:text-lg">
+              <p className="font-body text-[#A8927F] leading-relaxed text-base md:text-lg">
                 Currently at{" "}
-                <span className="text-[#0EA5E9]">Agrithmics (Pvt) Ltd</span>{" "}
+                <span className="text-[#C08552]">Agrithmics (Pvt) Ltd</span>{" "}
                 building the Verdant ERP platform — a full-scale tea &amp;
                 plantation management system. My final year project explores
                 edge-based Small Language Models for semantic file transformation.
               </p>
-              <p className="font-body text-[#8B9EC0] leading-relaxed">
+              <p className="font-body text-[#A8927F] leading-relaxed">
                 Off the keyboard: rugby pitch, camera in hand, or buried in a
                 mathematics textbook. Every discipline teaches you to think more
                 precisely.
@@ -176,12 +176,12 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
-                  className="bg-[#0D1829] border border-[rgba(14,165,233,0.15)] rounded-xl p-4 text-center"
+                  className="bg-[#1C110B] border border-[rgba(192,133,82,0.15)] rounded-xl p-4 text-center"
                 >
-                  <div className="font-display font-bold text-2xl text-[#0EA5E9]">
+                  <div className="font-display font-bold text-2xl text-[#C08552]">
                     {stat.value}
                   </div>
-                  <div className="font-body text-xs text-[#8B9EC0] mt-1 leading-tight">
+                  <div className="font-body text-xs text-[#A8927F] mt-1 leading-tight">
                     {stat.label}
                   </div>
                 </motion.div>

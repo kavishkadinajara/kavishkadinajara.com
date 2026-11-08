@@ -14,7 +14,7 @@ import {
 const SECTIONS = [
   {
     body: "When you visit this site, we may automatically collect certain information about your device, including your web browser, IP address, time zone, and browsing activity. We may also collect personal information you provide, such as your name and email address via the contact form.",
-    color: "text-[#0EA5E9]",
+    color: "text-[#C08552]",
     icon: IconInfoCircle,
     title: "Information We Collect",
   },
@@ -32,7 +32,7 @@ const SECTIONS = [
   },
   {
     body: "Your personal information is retained only as long as necessary to fulfil the purposes outlined in this policy or as required by law.",
-    color: "text-[#06B6D4]",
+    color: "text-[#D4A373]",
     icon: IconClock,
     title: "Data Retention",
   },
@@ -47,16 +47,16 @@ const SECTIONS = [
 export default function PrivacyPolicyPage() {
   return (
     <div
-      className="min-h-screen bg-[#050810] text-[#F0F4FF]"
+      className="min-h-screen bg-[#0A0705] text-[#F5EDE6]"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(14,165,233,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.03) 1px, transparent 1px)",
+          "linear-gradient(rgba(192,133,82,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(192,133,82,0.03) 1px, transparent 1px)",
         backgroundSize: "60px 60px",
       }}
     >
       <div className="max-w-3xl mx-auto px-6 py-24">
         <Link
-          className="inline-flex items-center gap-2 font-mono text-sm text-[#8B9EC0] hover:text-[#0EA5E9] transition-colors mb-12"
+          className="inline-flex items-center gap-2 font-mono text-sm text-[#A8927F] hover:text-[#C08552] transition-colors mb-12"
           href="/"
         >
           <IconArrowLeft size={16} />
@@ -69,16 +69,16 @@ export default function PrivacyPolicyPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="mb-10">
-            <span className="font-mono text-sm text-[#0EA5E9] tracking-widest uppercase">
+            <span className="font-mono text-sm text-[#C08552] tracking-widest uppercase">
               legal
             </span>
-            <h1 className="font-display font-bold text-4xl md:text-5xl text-[#F0F4FF] mt-2">
+            <h1 className="font-display font-bold text-4xl md:text-5xl text-[#F5EDE6] mt-2">
               Privacy Policy
             </h1>
-            <p className="font-mono text-sm text-[#8B9EC0] mt-3">
+            <p className="font-mono text-sm text-[#A8927F] mt-3">
               Last updated: October 25, 2024
             </p>
-            <div className="mt-5 h-px bg-gradient-to-r from-[#0EA5E9] via-[#06B6D4] to-transparent" />
+            <div className="mt-5 h-px bg-gradient-to-r from-[#C08552] via-[#D4A373] to-transparent" />
           </div>
 
           <div className="space-y-6">
@@ -86,17 +86,17 @@ export default function PrivacyPolicyPage() {
               <motion.div
                 key={title}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-[#0D1829] border border-[rgba(14,165,233,0.12)] rounded-xl p-6"
+                className="bg-[#1C110B] border border-[rgba(192,133,82,0.12)] rounded-xl p-6"
                 initial={{ opacity: 0, x: -20 }}
                 transition={{ delay: 0.1 + i * 0.07, duration: 0.45 }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Icon className={color} size={20} />
-                  <h2 className="font-display font-semibold text-lg text-[#F0F4FF]">
+                  <h2 className="font-display font-semibold text-lg text-[#F5EDE6]">
                     {title}
                   </h2>
                 </div>
-                <p className="font-body text-[#8B9EC0] leading-relaxed text-sm">
+                <p className="font-body text-[#A8927F] leading-relaxed text-sm">
                   {body}
                 </p>
               </motion.div>
@@ -109,9 +109,9 @@ export default function PrivacyPolicyPage() {
             initial={{ opacity: 0 }}
             transition={{ delay: 0.65 }}
           >
-            <p className="font-mono text-sm text-[#8B9EC0]">Questions?</p>
+            <p className="font-mono text-sm text-[#A8927F]">Questions?</p>
             <a
-              className="font-mono text-[#0EA5E9] hover:text-[#06B6D4] transition-colors mt-1 inline-block"
+              className="font-mono text-[#C08552] hover:text-[#D4A373] transition-colors mt-1 inline-block"
               href="mailto:hello@kavishkadinajara.com"
             >
               hello@kavishkadinajara.com
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
           </motion.div>
         </motion.div>
 
-        <div className="mt-16 pt-6 border-t border-[rgba(14,165,233,0.1)] flex items-center justify-between">
+        <div className="mt-16 pt-6 border-t border-[rgba(192,133,82,0.1)] flex items-center justify-between">
           <Link href="/">
             <img
               alt="Kavishka Dinajara"
@@ -128,7 +128,7 @@ export default function PrivacyPolicyPage() {
             />
           </Link>
           <Link
-            className="font-mono text-xs text-[#8B9EC0] hover:text-[#F0F4FF] transition-colors"
+            className="font-mono text-xs text-[#A8927F] hover:text-[#F5EDE6] transition-colors"
             href="/terms"
           >
             Terms of Service →

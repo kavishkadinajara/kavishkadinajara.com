@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import SectionTitle from "@/components/portfolio/ui/SectionTitle";
 
 const SKILL_BARS = [
-  { label: "React / Next.js",          percent: 90, color: "#0EA5E9" },
-  { label: ".NET Core / C#",           percent: 85, color: "#06B6D4" },
-  { label: "SQL Server / Dapper",      percent: 85, color: "#06B6D4" },
-  { label: "TypeScript",               percent: 88, color: "#0EA5E9" },
+  { label: "React / Next.js",          percent: 90, color: "#C08552" },
+  { label: ".NET Core / C#",           percent: 85, color: "#D4A373" },
+  { label: "SQL Server / Dapper",      percent: 85, color: "#D4A373" },
+  { label: "TypeScript",               percent: 88, color: "#C08552" },
   { label: "Python / FastAPI",         percent: 75, color: "#10B981" },
   { label: "Kotlin / Jetpack Compose", percent: 70, color: "#10B981" },
 ];
@@ -16,20 +16,20 @@ const SKILL_BARS = [
 const TECH_GROUPS = [
   {
     label: "Frontend",
-    color: "#0EA5E9",
-    border: "rgba(14,165,233,0.3)",
-    bg: "rgba(14,165,233,0.07)",
-    hoverBg: "rgba(14,165,233,0.15)",
-    hoverShadow: "0 0 16px rgba(14,165,233,0.4)",
+    color: "#C08552",
+    border: "rgba(192,133,82,0.3)",
+    bg: "rgba(192,133,82,0.07)",
+    hoverBg: "rgba(192,133,82,0.15)",
+    hoverShadow: "0 0 16px rgba(192,133,82,0.4)",
     items: ["React JS", "Next.js 14/15", "Material UI v4", "Tailwind CSS", "Framer Motion", "shadcn/ui", "Hero UI"],
   },
   {
     label: "Backend",
-    color: "#06B6D4",
-    border: "rgba(6,182,212,0.3)",
-    bg: "rgba(6,182,212,0.07)",
-    hoverBg: "rgba(6,182,212,0.15)",
-    hoverShadow: "0 0 16px rgba(6,182,212,0.4)",
+    color: "#D4A373",
+    border: "rgba(212,163,115,0.3)",
+    bg: "rgba(212,163,115,0.07)",
+    hoverBg: "rgba(212,163,115,0.15)",
+    hoverShadow: "0 0 16px rgba(212,163,115,0.4)",
     items: [".NET Core", "NestJS", "FastAPI", "Ballerina", "Dapper ORM"],
   },
   {
@@ -61,11 +61,11 @@ const TECH_GROUPS = [
   },
   {
     label: "Languages",
-    color: "#8B9EC0",
-    border: "rgba(139,158,192,0.2)",
-    bg: "rgba(139,158,192,0.05)",
-    hoverBg: "rgba(139,158,192,0.12)",
-    hoverShadow: "0 0 16px rgba(139,158,192,0.3)",
+    color: "#A8927F",
+    border: "rgba(168,146,127,0.2)",
+    bg: "rgba(168,146,127,0.05)",
+    hoverBg: "rgba(168,146,127,0.12)",
+    hoverShadow: "0 0 16px rgba(168,146,127,0.3)",
     items: ["JavaScript", "TypeScript", "C#", "Python", "Java", "Kotlin"],
   },
 ];
@@ -82,7 +82,7 @@ const item = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 bg-[#050810] grid-bg">
+    <section id="skills" className="relative py-24 bg-[#0A0705] grid-bg">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionTitle prefix="typeof skills // object" />
 
@@ -95,7 +95,7 @@ export default function Skills() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <h3 className="font-mono text-sm text-[#8B9EC0] mb-8 tracking-wider uppercase">
+            <h3 className="font-mono text-sm text-[#A8927F] mb-8 tracking-wider uppercase">
               — Core proficiency
             </h3>
             <div className="space-y-5">
@@ -108,10 +108,10 @@ export default function Skills() {
                   transition={{ delay: i * 0.07, duration: 0.4 }}
                 >
                   <div className="flex justify-between mb-2">
-                    <span className="font-mono text-sm text-[#C8D4F0]">{s.label}</span>
-                    <span className="font-mono text-xs text-[#8B9EC0]">{s.percent}%</span>
+                    <span className="font-mono text-sm text-[#D9C9BA]">{s.label}</span>
+                    <span className="font-mono text-xs text-[#A8927F]">{s.percent}%</span>
                   </div>
-                  <div className="h-1.5 w-full rounded-full bg-[rgba(14,165,233,0.1)] overflow-hidden">
+                  <div className="h-1.5 w-full rounded-full bg-[rgba(192,133,82,0.1)] overflow-hidden">
                     <motion.div
                       className="h-full rounded-full"
                       style={{ background: `linear-gradient(90deg, ${s.color}, ${s.color}aa)` }}
@@ -133,7 +133,7 @@ export default function Skills() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
           >
-            <h3 className="font-mono text-sm text-[#8B9EC0] mb-8 tracking-wider uppercase">
+            <h3 className="font-mono text-sm text-[#A8927F] mb-8 tracking-wider uppercase">
               — Full stack
             </h3>
             <div className="space-y-5">

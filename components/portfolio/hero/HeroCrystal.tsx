@@ -34,10 +34,10 @@ function Crystal() {
       <mesh ref={meshRef}>
         <icosahedronGeometry args={[1.6, 0]} />
         <meshPhongMaterial
-          color={new THREE.Color("#0EA5E9")}
+          color={new THREE.Color("#C08552")}
           emissive={new THREE.Color("#0A1F3A")}
           shininess={140}
-          specular={new THREE.Color("#06B6D4")}
+          specular={new THREE.Color("#D4A373")}
           transparent
           opacity={0.18}
           flatShading
@@ -47,7 +47,7 @@ function Crystal() {
       <lineSegments ref={wireRef}>
         <edgesGeometry args={[new THREE.IcosahedronGeometry(1.6, 0)]} />
         <lineBasicMaterial
-          color={new THREE.Color("#06B6D4")}
+          color={new THREE.Color("#D4A373")}
           transparent
           opacity={0.9}
         />
@@ -60,7 +60,7 @@ export default function HeroCrystal() {
   return (
     <div
       className="absolute inset-0 pointer-events-none"
-      style={{ filter: "drop-shadow(0 0 30px rgba(14,165,233,0.4))" }}
+      style={{ filter: "drop-shadow(0 0 30px rgba(192,133,82,0.4))" }}
       aria-hidden="true"
     >
       <Canvas
@@ -70,8 +70,8 @@ export default function HeroCrystal() {
         style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.4} />
-        <pointLight position={[3, 3, 4]} intensity={1.2} color="#0EA5E9" />
-        <pointLight position={[-3, -2, 2]} intensity={0.6} color="#06B6D4" />
+        <pointLight position={[3, 3, 4]} intensity={1.2} color="#C08552" />
+        <pointLight position={[-3, -2, 2]} intensity={0.6} color="#D4A373" />
         <Crystal />
       </Canvas>
     </div>

@@ -29,19 +29,19 @@ export default function HeroPhoto({ children }: HeroPhotoProps) {
         className="absolute inset-0 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(14,165,233,0.18), rgba(6,182,212,0.08) 45%, transparent 70%)",
+            "radial-gradient(circle at 50% 50%, rgba(192,133,82,0.18), rgba(212,163,115,0.08) 45%, transparent 70%)",
           filter: "blur(20px)",
         }}
         aria-hidden="true"
       />
 
       <div
-        className="absolute inset-0 rounded-full border border-dashed border-[rgba(14,165,233,0.18)] orbit-outer"
+        className="absolute inset-0 rounded-full border border-dashed border-[rgba(192,133,82,0.18)] orbit-outer"
         style={{ transform: "scale(1.45)" }}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 rounded-full border border-[rgba(6,182,212,0.16)] orbit-counter-outer"
+        className="absolute inset-0 rounded-full border border-[rgba(212,163,115,0.16)] orbit-counter-outer"
         style={{ transform: "scale(1.22)" }}
         aria-hidden="true"
       />
@@ -78,13 +78,13 @@ export default function HeroPhoto({ children }: HeroPhotoProps) {
           className="absolute inset-0 rounded-full"
           style={{
             background:
-              "radial-gradient(circle at 50% 30%, rgba(14,165,233,0.4), transparent 60%)",
+              "radial-gradient(circle at 50% 30%, rgba(192,133,82,0.4), transparent 60%)",
             filter: "blur(14px)",
           }}
           aria-hidden="true"
         />
 
-        <div className="relative w-full h-full rounded-full overflow-hidden border border-[rgba(14,165,233,0.35)] shadow-[0_0_50px_rgba(14,165,233,0.25)]">
+        <div className="relative w-full h-full rounded-full overflow-hidden border border-[rgba(192,133,82,0.35)] shadow-[0_0_50px_rgba(192,133,82,0.25)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/kavishkadinajara.jpeg"
@@ -97,7 +97,7 @@ export default function HeroPhoto({ children }: HeroPhotoProps) {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(160deg, rgba(255,255,255,0.08) 0%, transparent 35%, transparent 65%, rgba(14,165,233,0.18) 100%)",
+                "linear-gradient(160deg, rgba(255,255,255,0.08) 0%, transparent 35%, transparent 65%, rgba(192,133,82,0.18) 100%)",
             }}
             aria-hidden="true"
           />

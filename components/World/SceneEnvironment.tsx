@@ -27,12 +27,12 @@ interface ZoneAtmosphere {
 const ZONE_ATMOSPHERES: ZoneAtmosphere[] = [
   {
     // Tech Core — deep blue/purple cyber fog
-    fogColor: new THREE.Color("#050520"),
+    fogColor: new THREE.Color("#0a0604"),
     fogNear: 10,
     fogFar: 100,
     ambientColor: new THREE.Color("#1a1a4e"),
     ambientIntensity: 0.5,
-    directionalColor: new THREE.Color("#4444ff"),
+    directionalColor: new THREE.Color("#c08552"),
     directionalIntensity: 1.0,
   },
   {

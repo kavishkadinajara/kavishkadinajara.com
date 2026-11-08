@@ -13,7 +13,7 @@ export default function TiltCard({
   children,
   className = "",
   maxTilt   = 12,
-  glowColor = "rgba(14,165,233,0.35)",
+  glowColor = "rgba(192,133,82,0.35)",
 }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 

@@ -11,27 +11,27 @@ const CONTACT_LINKS = [
     label: "Email",
     value: "hello@kavishkadinajara.com",
     href: "mailto:hello@kavishkadinajara.com",
-    color: "text-[#0EA5E9]",
-    border: "border-[rgba(14,165,233,0.2)]",
-    bg: "bg-[rgba(14,165,233,0.08)]",
+    color: "text-[#C08552]",
+    border: "border-[rgba(192,133,82,0.2)]",
+    bg: "bg-[rgba(192,133,82,0.08)]",
   },
   {
     icon: IconBrandGithub,
     label: "GitHub",
     value: "github.com/KavishkaDinajara",
     href: "https://github.com/KavishkaDinajara",
-    color: "text-[#F0F4FF]",
-    border: "border-[rgba(240,244,255,0.1)]",
-    bg: "bg-[rgba(240,244,255,0.04)]",
+    color: "text-[#F5EDE6]",
+    border: "border-[rgba(245,237,230,0.1)]",
+    bg: "bg-[rgba(245,237,230,0.04)]",
   },
   {
     icon: IconBrandLinkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/kavishka-dinajara",
     href: "https://www.linkedin.com/in/kavishka-dinajara",
-    color: "text-[#06B6D4]",
-    border: "border-[rgba(6,182,212,0.2)]",
-    bg: "bg-[rgba(6,182,212,0.08)]",
+    color: "text-[#D4A373]",
+    border: "border-[rgba(212,163,115,0.2)]",
+    bg: "bg-[rgba(212,163,115,0.08)]",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-[#050810] grid-bg">
+    <section id="contact" className="relative py-24 bg-[#0A0705] grid-bg">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionTitle prefix="ping kavishka.dev --connect" />
 
@@ -79,10 +79,10 @@ export default function Contact() {
             className="space-y-5"
           >
             <div className="mb-8">
-              <h3 className="font-display font-bold text-2xl text-[#F0F4FF] mb-3">
+              <h3 className="font-display font-bold text-2xl text-[#F5EDE6] mb-3">
                 {"Let's build something."}
               </h3>
-              <p className="font-body text-[#8B9EC0] leading-relaxed">
+              <p className="font-body text-[#A8927F] leading-relaxed">
                 I&apos;m open to interesting projects, collaborations, and
                 conversations about software, science, or anything in between.
               </p>
@@ -102,7 +102,7 @@ export default function Contact() {
                     <Icon size={20} />
                   </div>
                   <div>
-                    <div className="font-mono text-xs text-[#8B9EC0] tracking-wider uppercase">
+                    <div className="font-mono text-xs text-[#A8927F] tracking-wider uppercase">
                       {link.label}
                     </div>
                     <div className={`font-body text-sm mt-0.5 ${link.color} group-hover:underline`}>
@@ -124,13 +124,13 @@ export default function Contact() {
             {status === "sent" ? (
               <div className="h-full flex flex-col items-center justify-center text-center gap-4 py-12">
                 <IconCircleCheck size={48} className="text-[#10B981]" />
-                <h4 className="font-display font-bold text-xl text-[#F0F4FF]">Message sent!</h4>
-                <p className="font-body text-[#8B9EC0]">
+                <h4 className="font-display font-bold text-xl text-[#F5EDE6]">Message sent!</h4>
+                <p className="font-body text-[#A8927F]">
                   {"I'll get back to you soon."}
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-2 font-mono text-sm text-[#0EA5E9] hover:underline"
+                  className="mt-2 font-mono text-sm text-[#C08552] hover:underline"
                 >
                   Send another
                 </button>
@@ -138,7 +138,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="name" className="block font-mono text-xs text-[#A8927F] tracking-wider uppercase mb-2">
                     Name
                   </label>
                   <input
@@ -152,7 +152,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="email" className="block font-mono text-xs text-[#A8927F] tracking-wider uppercase mb-2">
                     Email
                   </label>
                   <input
@@ -167,7 +167,7 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block font-mono text-xs text-[#8B9EC0] tracking-wider uppercase mb-2">
+                  <label htmlFor="message" className="block font-mono text-xs text-[#A8927F] tracking-wider uppercase mb-2">
                     Message
                   </label>
                   <textarea
@@ -191,7 +191,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#0EA5E9] hover:bg-[#0284C7] disabled:opacity-60 disabled:cursor-not-allowed text-white font-body font-medium text-sm rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)]"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#C08552] hover:bg-[#8B5A33] disabled:opacity-60 disabled:cursor-not-allowed text-white font-body font-medium text-sm rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(192,133,82,0.3)] hover:shadow-[0_0_30px_rgba(192,133,82,0.5)]"
                 >
                   <IconSend size={16} />
                   {status === "sending" ? "Sending…" : "Send Message"}

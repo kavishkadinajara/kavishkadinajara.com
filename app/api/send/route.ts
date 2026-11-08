@@ -47,16 +47,16 @@ export async function POST(request: NextRequest) {
       replyTo: email,
       subject: `Portfolio Contact from ${name}`,
       html: `
-        <div style="font-family:'Inter',Arial,sans-serif;max-width:600px;margin:0 auto;background:#050810;color:#F0F4FF;padding:32px;border-radius:12px;border:1px solid rgba(14,165,233,0.2)">
-          <h2 style="color:#0EA5E9;font-size:20px;margin-top:0">New message from kavishka.dev</h2>
+        <div style="font-family:'Inter',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0A0705;color:#F5EDE6;padding:32px;border-radius:12px;border:1px solid rgba(192,133,82,0.2)">
+          <h2 style="color:#C08552;font-size:20px;margin-top:0">New message from kavishka.dev</h2>
           <table style="width:100%;border-collapse:collapse;margin:20px 0">
-            <tr><td style="padding:8px 0;color:#8B9EC0;font-size:13px;width:80px">Name</td><td style="padding:8px 0;color:#F0F4FF">${name}</td></tr>
-            <tr><td style="padding:8px 0;color:#8B9EC0;font-size:13px">Reply-to</td><td style="padding:8px 0;color:#0EA5E9"><a href="mailto:${email}" style="color:#0EA5E9">${email}</a></td></tr>
+            <tr><td style="padding:8px 0;color:#A8927F;font-size:13px;width:80px">Name</td><td style="padding:8px 0;color:#F5EDE6">${name}</td></tr>
+            <tr><td style="padding:8px 0;color:#A8927F;font-size:13px">Reply-to</td><td style="padding:8px 0;color:#C08552"><a href="mailto:${email}" style="color:#C08552">${email}</a></td></tr>
           </table>
-          <div style="background:#0D1829;border-radius:8px;padding:20px;border-left:3px solid #0EA5E9;margin-top:16px">
-            <p style="margin:0;line-height:1.7;color:#C8D4F0;font-size:15px">${message.replace(/\n/g, "<br>")}</p>
+          <div style="background:#1C110B;border-radius:8px;padding:20px;border-left:3px solid #C08552;margin-top:16px">
+            <p style="margin:0;line-height:1.7;color:#D9C9BA;font-size:15px">${message.replace(/\n/g, "<br>")}</p>
           </div>
-          <p style="margin-top:24px;font-size:12px;color:#8B9EC0">Sent ${new Date().toLocaleString("en-US", { timeZone: "Asia/Colombo" })} (Sri Lanka)</p>
+          <p style="margin-top:24px;font-size:12px;color:#A8927F">Sent ${new Date().toLocaleString("en-US", { timeZone: "Asia/Colombo" })} (Sri Lanka)</p>
         </div>
       `,
     });

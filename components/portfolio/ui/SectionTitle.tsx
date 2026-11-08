@@ -16,7 +16,7 @@ export default function SectionTitle({ prefix, className = "" }: SectionTitlePro
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`mb-12 ${className}`}
     >
-      <span className="font-mono text-lg md:text-xl text-[#0EA5E9] tracking-wide">
+      <span className="font-mono text-lg md:text-xl text-[#C08552] tracking-wide">
         {prefix}
       </span>
       <div className="mt-3 circuit-divider" />

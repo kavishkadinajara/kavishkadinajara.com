@@ -16,7 +16,7 @@ export default function CopyButton({ code }: { code: string }) {
     <button
       onClick={copy}
       aria-label="Copy code"
-      className="flex items-center gap-1 font-mono text-[10px] text-[#8B9EC0] hover:text-[#F0F4FF] transition-colors"
+      className="flex items-center gap-1 font-mono text-[10px] text-[#A8927F] hover:text-[#F5EDE6] transition-colors"
     >
       {copied ? (
         <>
