@@ -52,7 +52,7 @@ export default function LoadingScreen() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(68, 68, 255, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(68, 68, 255, 0.3) 1px, transparent 1px)",
+              "linear-gradient(rgba(192,133,82, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(192,133,82, 0.3) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
             animation: "gridMove 4s linear infinite",
           }}

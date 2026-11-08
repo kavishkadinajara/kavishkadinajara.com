@@ -56,7 +56,7 @@ function Book({
 }
 
 function Bookshelf({ position }: { position: [number, number, number] }) {
-  const bookColors = ["#8B0000", "#1a3a5c", "#2d1a0a", "#4a0a4a", "#0a3a2a", "#5a3a1a"];
+  const bookColors = ["#8B0000", "#3a2414", "#2d1a0a", "#4a0a4a", "#0a3a2a", "#5a3a1a"];
 
   return (
     <Float speed={0.5} floatIntensity={0.3}>
@@ -197,7 +197,7 @@ export default function Sanctuary() {
 
       {/* Individual floating books */}
       <Book position={[-2, 3, -2]} rotation={[0.2, 0.5, 0.1]} color="#8B0000" />
-      <Book position={[3, 5, -4]} rotation={[-0.1, -0.3, 0.2]} color="#1a3a5c" />
+      <Book position={[3, 5, -4]} rotation={[-0.1, -0.3, 0.2]} color="#3a2414" />
       <Book position={[0, 7, 1]} rotation={[0.3, 0.8, -0.1]} color="#2d1a0a" />
       <Book position={[-5, 4, -6]} rotation={[0, 1.2, 0.15]} color="#4a0a4a" />
       <Book position={[5, 2, 3]} rotation={[-0.2, -0.6, 0]} color="#0a3a2a" size={[0.2, 1, 0.7]} />

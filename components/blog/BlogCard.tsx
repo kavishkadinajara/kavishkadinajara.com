@@ -13,18 +13,18 @@ interface BlogCardProps {
 
 function GradientPlaceholder({ tag }: { tag: string }) {
   const colorMap: Record<string, string> = {
-    dotnet:       "from-[rgba(14,165,233,0.15)] to-[rgba(14,165,233,0.03)]",
-    csharp:       "from-[rgba(14,165,233,0.15)] to-[rgba(14,165,233,0.03)]",
-    backend:      "from-[rgba(14,165,233,0.15)] to-[rgba(14,165,233,0.03)]",
-    react:        "from-[rgba(6,182,212,0.15)]  to-[rgba(6,182,212,0.03)]",
-    frontend:     "from-[rgba(6,182,212,0.15)]  to-[rgba(6,182,212,0.03)]",
+    dotnet:       "from-[rgba(192,133,82,0.15)] to-[rgba(192,133,82,0.03)]",
+    csharp:       "from-[rgba(192,133,82,0.15)] to-[rgba(192,133,82,0.03)]",
+    backend:      "from-[rgba(192,133,82,0.15)] to-[rgba(192,133,82,0.03)]",
+    react:        "from-[rgba(212,163,115,0.15)]  to-[rgba(212,163,115,0.03)]",
+    frontend:     "from-[rgba(212,163,115,0.15)]  to-[rgba(212,163,115,0.03)]",
     database:     "from-[rgba(16,185,129,0.15)] to-[rgba(16,185,129,0.03)]",
     architecture: "from-[rgba(139,92,246,0.15)] to-[rgba(139,92,246,0.03)]",
     ai:           "from-[rgba(236,72,153,0.15)] to-[rgba(236,72,153,0.03)]",
     research:     "from-[rgba(251,191,36,0.15)]  to-[rgba(251,191,36,0.03)]",
     nlp:          "from-[rgba(236,72,153,0.15)]  to-[rgba(236,72,153,0.03)]",
   };
-  const gradient = colorMap[tag?.toLowerCase()] ?? "from-[rgba(14,165,233,0.1)] to-[rgba(6,182,212,0.03)]";
+  const gradient = colorMap[tag?.toLowerCase()] ?? "from-[rgba(192,133,82,0.1)] to-[rgba(212,163,115,0.03)]";
 
   return (
     <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
@@ -39,7 +39,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.07, ease: "easeOut" }}
-      className="group hover-glow flex flex-col bg-[#0D1829] border border-[rgba(14,165,233,0.12)] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
+      className="group hover-glow flex flex-col bg-[#1C110B] border border-[rgba(192,133,82,0.12)] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
     >
       {/* Cover / Placeholder */}
       <div className="h-44 overflow-hidden shrink-0">
@@ -64,14 +64,14 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
         </div>
 
         {/* Title */}
-        <h2 className="font-display font-semibold text-lg text-[#F0F4FF] leading-snug mb-2 group-hover:text-[#0EA5E9] transition-colors line-clamp-2">
+        <h2 className="font-display font-semibold text-lg text-[#F5EDE6] leading-snug mb-2 group-hover:text-[#C08552] transition-colors line-clamp-2">
           {post.title}
         </h2>
 
         {/* Meta */}
-        <div className="flex items-center gap-3 mb-3 font-mono text-xs text-[#8B9EC0]">
+        <div className="flex items-center gap-3 mb-3 font-mono text-xs text-[#A8927F]">
           <span>{post.date}</span>
-          <span className="text-[rgba(139,158,192,0.3)]">·</span>
+          <span className="text-[rgba(168,146,127,0.3)]">·</span>
           <span className="flex items-center gap-1">
             <IconClock size={11} />
             {post.readingTime}
@@ -79,14 +79,14 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
         </div>
 
         {/* Summary */}
-        <p className="font-body text-sm text-[#8B9EC0] leading-relaxed line-clamp-2 flex-1">
+        <p className="font-body text-sm text-[#A8927F] leading-relaxed line-clamp-2 flex-1">
           {post.summary}
         </p>
 
         {/* Read more */}
         <Link
           href={`/blog/${post.slug}`}
-          className="inline-flex items-center gap-1.5 mt-4 font-mono text-xs text-[#0EA5E9] hover:text-[#06B6D4] transition-colors group/link"
+          className="inline-flex items-center gap-1.5 mt-4 font-mono text-xs text-[#C08552] hover:text-[#D4A373] transition-colors group/link"
         >
           Read more
           <IconArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform" />

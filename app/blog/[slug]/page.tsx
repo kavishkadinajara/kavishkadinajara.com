@@ -90,10 +90,10 @@ export default function SinglePostPage({
       />
 
       <div
-        className="min-h-screen bg-[#050810] text-[#F0F4FF]"
+        className="min-h-screen bg-[#0A0705] text-[#F5EDE6]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(14,165,233,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.03) 1px, transparent 1px)",
+            "linear-gradient(rgba(192,133,82,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(192,133,82,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       >
@@ -107,7 +107,7 @@ export default function SinglePostPage({
               <MDXContent html={html} />
 
               {/* Bottom tags + navigation */}
-              <div className="mt-12 pt-8 border-t border-[rgba(14,165,233,0.1)]">
+              <div className="mt-12 pt-8 border-t border-[rgba(192,133,82,0.1)]">
                 <div className="flex flex-wrap gap-2 mb-8">
                   {post.tags.map((t) => (
                     <TagBadge key={t} tag={t} />
@@ -118,12 +118,12 @@ export default function SinglePostPage({
                   {prev && (
                     <Link
                       href={`/blog/${prev.slug}`}
-                      className="hover-glow group flex flex-col gap-1 p-4 bg-[#0D1829] border border-[rgba(14,165,233,0.12)] rounded-xl transition-all duration-200"
+                      className="hover-glow group flex flex-col gap-1 p-4 bg-[#1C110B] border border-[rgba(192,133,82,0.12)] rounded-xl transition-all duration-200"
                     >
-                      <span className="font-mono text-xs text-[#8B9EC0] flex items-center gap-1">
+                      <span className="font-mono text-xs text-[#A8927F] flex items-center gap-1">
                         <IconArrowLeft size={12} /> Previous
                       </span>
-                      <span className="font-display text-sm text-[#F0F4FF] group-hover:text-[#0EA5E9] transition-colors line-clamp-2">
+                      <span className="font-display text-sm text-[#F5EDE6] group-hover:text-[#C08552] transition-colors line-clamp-2">
                         {prev.title}
                       </span>
                     </Link>
@@ -131,12 +131,12 @@ export default function SinglePostPage({
                   {next && (
                     <Link
                       href={`/blog/${next.slug}`}
-                      className="hover-glow group flex flex-col gap-1 p-4 bg-[#0D1829] border border-[rgba(14,165,233,0.12)] rounded-xl transition-all duration-200 sm:text-right"
+                      className="hover-glow group flex flex-col gap-1 p-4 bg-[#1C110B] border border-[rgba(192,133,82,0.12)] rounded-xl transition-all duration-200 sm:text-right"
                     >
-                      <span className="font-mono text-xs text-[#8B9EC0] flex items-center gap-1 sm:justify-end">
+                      <span className="font-mono text-xs text-[#A8927F] flex items-center gap-1 sm:justify-end">
                         Next <IconArrowRight size={12} />
                       </span>
-                      <span className="font-display text-sm text-[#F0F4FF] group-hover:text-[#0EA5E9] transition-colors line-clamp-2">
+                      <span className="font-display text-sm text-[#F5EDE6] group-hover:text-[#C08552] transition-colors line-clamp-2">
                         {next.title}
                       </span>
                     </Link>
@@ -147,7 +147,7 @@ export default function SinglePostPage({
               {/* Related posts */}
               {relatedPosts.length > 0 && (
                 <div className="mt-14">
-                  <h3 className="font-mono text-sm text-[#8B9EC0] tracking-widest uppercase mb-6">
+                  <h3 className="font-mono text-sm text-[#A8927F] tracking-widest uppercase mb-6">
                     {"// more posts you might like"}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -155,7 +155,7 @@ export default function SinglePostPage({
                       <Link
                         key={p.slug}
                         href={`/blog/${p.slug}`}
-                        className="hover-glow group flex gap-4 p-4 bg-[#0D1829] border border-[rgba(14,165,233,0.12)] rounded-xl transition-all duration-200"
+                        className="hover-glow group flex gap-4 p-4 bg-[#1C110B] border border-[rgba(192,133,82,0.12)] rounded-xl transition-all duration-200"
                       >
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-wrap gap-1 mb-2">
@@ -163,10 +163,10 @@ export default function SinglePostPage({
                               <TagBadge key={t} tag={t} small />
                             ))}
                           </div>
-                          <p className="font-display text-sm text-[#F0F4FF] group-hover:text-[#0EA5E9] transition-colors line-clamp-2">
+                          <p className="font-display text-sm text-[#F5EDE6] group-hover:text-[#C08552] transition-colors line-clamp-2">
                             {p.title}
                           </p>
-                          <p className="font-mono text-xs text-[#8B9EC0] mt-1">{p.readingTime}</p>
+                          <p className="font-mono text-xs text-[#A8927F] mt-1">{p.readingTime}</p>
                         </div>
                       </Link>
                     ))}

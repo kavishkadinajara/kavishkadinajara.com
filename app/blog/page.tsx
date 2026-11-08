@@ -40,10 +40,10 @@ export default function BlogListPage() {
 
   return (
     <div
-      className="min-h-screen bg-[#050810] text-[#F0F4FF]"
+      className="min-h-screen bg-[#0A0705] text-[#F5EDE6]"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(14,165,233,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,0.03) 1px, transparent 1px)",
+          "linear-gradient(rgba(192,133,82,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(192,133,82,0.03) 1px, transparent 1px)",
         backgroundSize: "60px 60px",
       }}
     >
@@ -56,21 +56,21 @@ export default function BlogListPage() {
           transition={{ duration: 0.5 }}
         >
           <Link
-            className="font-mono text-xs text-[#8B9EC0] hover:text-[#0EA5E9] transition-colors mb-6 block"
+            className="font-mono text-xs text-[#A8927F] hover:text-[#C08552] transition-colors mb-6 block"
             href="/"
           >
             ← Back to portfolio
           </Link>
-          <span className="font-mono text-lg text-[#0EA5E9] tracking-wide">
+          <span className="font-mono text-lg text-[#C08552] tracking-wide">
             {"// blog.posts"}
           </span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-[#F0F4FF] mt-2 mb-3">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-[#F5EDE6] mt-2 mb-3">
             The Blog
           </h1>
-          <p className="font-body text-[#8B9EC0] text-lg">
+          <p className="font-body text-[#A8927F] text-lg">
             Thoughts on engineering, architecture, and building things.
           </p>
-          <div className="mt-6 h-px bg-gradient-to-r from-[#0EA5E9] via-[#06B6D4] to-transparent" />
+          <div className="mt-6 h-px bg-gradient-to-r from-[#C08552] via-[#D4A373] to-transparent" />
         </motion.div>
 
         {/* Search */}
@@ -81,11 +81,11 @@ export default function BlogListPage() {
           transition={{ delay: 0.15 }}
         >
           <IconSearch
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B9EC0]"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-[#A8927F]"
             size={16}
           />
           <input
-            className="w-full max-w-sm bg-[#0D1829] border border-[rgba(14,165,233,0.2)] rounded-lg pl-10 pr-4 py-2.5 font-mono text-sm text-[#F0F4FF] placeholder:text-[#8B9EC0] outline-none focus:border-[rgba(14,165,233,0.5)] focus:shadow-[0_0_0_3px_rgba(14,165,233,0.1)] transition-all"
+            className="w-full max-w-sm bg-[#1C110B] border border-[rgba(192,133,82,0.2)] rounded-lg pl-10 pr-4 py-2.5 font-mono text-sm text-[#F5EDE6] placeholder:text-[#A8927F] outline-none focus:border-[rgba(192,133,82,0.5)] focus:shadow-[0_0_0_3px_rgba(192,133,82,0.1)] transition-all"
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search posts…"
             value={search}
@@ -118,7 +118,7 @@ export default function BlogListPage() {
         {filtered.length === 0 ? (
           <motion.p
             animate={{ opacity: 1 }}
-            className="font-mono text-[#8B9EC0] text-center py-20"
+            className="font-mono text-[#A8927F] text-center py-20"
             initial={{ opacity: 0 }}
           >
             {activeTag !== "all"

@@ -119,7 +119,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050810",
+  themeColor: "#0A0705",
   width: "device-width",
   initialScale: 1,
 };
@@ -168,7 +168,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-[#050810] text-[#F0F4FF] font-body antialiased">
+      <body className="bg-[#0A0705] text-[#F5EDE6] font-body antialiased">
         <CustomCursor />
         {children}
         <Analytics />

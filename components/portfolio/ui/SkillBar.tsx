@@ -11,8 +11,8 @@ export default function SkillBar({ label, percent }: SkillBarProps) {
   return (
     <div className="mb-5">
       <div className="flex justify-between items-center mb-2">
-        <span className="font-mono text-sm text-[#F0F4FF]">{label}</span>
-        <span className="font-mono text-xs text-[#0EA5E9]">{percent}%</span>
+        <span className="font-mono text-sm text-[#F5EDE6]">{label}</span>
+        <span className="font-mono text-xs text-[#C08552]">{percent}%</span>
       </div>
       <div className="skill-bar-track h-2 rounded-full">
         <motion.div

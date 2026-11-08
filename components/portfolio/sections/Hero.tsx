@@ -49,7 +49,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 30% 50%, rgba(14,165,233,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 30% 50%, rgba(192,133,82,0.06) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -64,7 +64,7 @@ export default function Hero() {
               custom={0.1}
               className="mb-4 flex items-center gap-3"
             >
-              <span className="font-mono text-sm md:text-base text-[#0EA5E9] tracking-widest uppercase">
+              <span className="font-mono text-sm md:text-base text-[#C08552] tracking-widest uppercase">
                 Associate Software Engineer
               </span>
               <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-[rgba(16,185,129,0.4)] bg-[rgba(16,185,129,0.06)]">
@@ -82,10 +82,10 @@ export default function Hero() {
               custom={0.25}
               className="font-display font-bold leading-none tracking-tight"
             >
-              <span className="block text-6xl md:text-8xl lg:text-9xl text-[#F0F4FF]">
+              <span className="block text-6xl md:text-8xl lg:text-9xl text-[#F5EDE6]">
                 Kavishka
               </span>
-              <span className="block text-6xl md:text-8xl lg:text-9xl bg-gradient-to-r from-[#0EA5E9] to-[#06B6D4] bg-clip-text text-transparent">
+              <span className="block text-6xl md:text-8xl lg:text-9xl bg-gradient-to-r from-[#C08552] to-[#D4A373] bg-clip-text text-transparent">
                 Dinajara
               </span>
             </motion.h1>
@@ -115,7 +115,7 @@ export default function Hero() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-[#0EA5E9] hover:bg-[#0284C7] text-white font-body font-medium text-sm rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)]"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-[#C08552] hover:bg-[#8B5A33] text-white font-body font-medium text-sm rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(192,133,82,0.3)] hover:shadow-[0_0_30px_rgba(192,133,82,0.5)]"
               >
                 View Projects
                 <IconArrowRight
@@ -127,7 +127,7 @@ export default function Hero() {
               <a
                 href="/Kavishka-Dinajara-CV.pdf"
                 download
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(14,165,233,0.4)] text-[#0EA5E9] hover:bg-[rgba(14,165,233,0.08)] font-body font-medium text-sm rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(192,133,82,0.4)] text-[#C08552] hover:bg-[rgba(192,133,82,0.08)] font-body font-medium text-sm rounded-lg transition-all duration-200"
               >
                 <IconDownload size={16} />
                 Download CV
@@ -139,12 +139,12 @@ export default function Hero() {
               initial="hidden"
               animate="show"
               custom={0.85}
-              className="mt-10 flex items-center gap-6 text-[#8B9EC0] font-mono text-xs"
+              className="mt-10 flex items-center gap-6 text-[#A8927F] font-mono text-xs"
             >
               <Stat value="1+" label="years" />
-              <span className="w-px h-6 bg-[rgba(14,165,233,0.25)]" />
+              <span className="w-px h-6 bg-[rgba(192,133,82,0.25)]" />
               <Stat value="15+" label="projects" />
-              <span className="w-px h-6 bg-[rgba(14,165,233,0.25)]" />
+              <span className="w-px h-6 bg-[rgba(192,133,82,0.25)]" />
               <Stat value="4+" label="ERP modules" />
             </motion.div>
           </div>
@@ -173,13 +173,13 @@ export default function Hero() {
           transition={{ delay: 1.4, duration: 0.8 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="font-mono text-[10px] text-[#8B9EC0] tracking-widest uppercase">
+          <span className="font-mono text-[10px] text-[#A8927F] tracking-widest uppercase">
             scroll
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-10 bg-gradient-to-b from-[#0EA5E9] to-transparent"
+            className="w-px h-10 bg-gradient-to-b from-[#C08552] to-transparent"
           />
         </motion.div>
       </div>
@@ -190,7 +190,7 @@ export default function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <span className="flex items-baseline gap-1.5">
-      <span className="text-[#F0F4FF] text-base font-bold">{value}</span>
+      <span className="text-[#F5EDE6] text-base font-bold">{value}</span>
       <span className="uppercase tracking-widest">{label}</span>
     </span>
   );

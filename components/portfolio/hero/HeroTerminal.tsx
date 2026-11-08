@@ -12,11 +12,11 @@ type Step =
 const SCRIPT: Step[] = [
   { kind: "type", text: "$ whoami" },
   { kind: "pause", ms: 250 },
-  { kind: "out",  text: "→ Associate Software Engineer", color: "#0EA5E9" },
+  { kind: "out",  text: "→ Associate Software Engineer", color: "#C08552" },
   { kind: "pause", ms: 600 },
   { kind: "type", text: "$ stack --short" },
   { kind: "pause", ms: 250 },
-  { kind: "out",  text: "→ React · Next · Azure · Ballerina", color: "#06B6D4" },
+  { kind: "out",  text: "→ React · Next · Azure · Ballerina", color: "#D4A373" },
   { kind: "pause", ms: 600 },
   { kind: "type", text: "$ deploy --prod" },
   { kind: "pause", ms: 250 },
@@ -82,7 +82,7 @@ export default function HeroTerminal() {
         setTypingLine(`${label} [${filled}${empty}] ${pct}%`);
         await sleep(reduce ? 0 : stepMs);
       }
-      pushLine(`${label} [████████████████] 100%`, "#06B6D4");
+      pushLine(`${label} [████████████████] 100%`, "#D4A373");
       setTypingLine("");
     };
 
@@ -125,16 +125,16 @@ export default function HeroTerminal() {
 
   return (
     <div className={`glass-panel w-full max-w-md ${glitch ? "glitch" : ""}`}>
-      <div className="flex items-center justify-between px-3 py-2 border-b border-[rgba(14,165,233,0.18)]">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-[rgba(192,133,82,0.18)]">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
         </div>
-        <span className="font-mono text-[10px] text-[#8B9EC0] tracking-wide">
+        <span className="font-mono text-[10px] text-[#A8927F] tracking-wide">
           ~/kavishka
         </span>
-        <span className="font-mono text-[10px] text-[#8B9EC0]">zsh</span>
+        <span className="font-mono text-[10px] text-[#A8927F]">zsh</span>
       </div>
 
       <div className="relative px-4 py-3 h-44 overflow-hidden font-mono text-[12.5px] leading-[1.55]">
@@ -142,35 +142,35 @@ export default function HeroTerminal() {
           <div
             key={line.id}
             className="whitespace-pre"
-            style={{ color: line.color ?? "#F0F4FF" }}
+            style={{ color: line.color ?? "#F5EDE6" }}
           >
             {line.text}
           </div>
         ))}
 
         {typingLine && (
-          <div className="whitespace-pre text-[#F0F4FF]">
+          <div className="whitespace-pre text-[#F5EDE6]">
             {typingLine}
             <span
               className="inline-block w-[7px] h-[14px] align-middle ml-[2px]"
               style={{
-                background: "#0EA5E9",
+                background: "#C08552",
                 opacity: cursorOn ? 1 : 0,
-                boxShadow: "0 0 6px #0EA5E9",
+                boxShadow: "0 0 6px #C08552",
               }}
             />
           </div>
         )}
 
         {!typingLine && (
-          <div className="text-[#F0F4FF]">
+          <div className="text-[#F5EDE6]">
             $
             <span
               className="inline-block w-[7px] h-[14px] align-middle ml-[6px]"
               style={{
-                background: "#0EA5E9",
+                background: "#C08552",
                 opacity: cursorOn ? 1 : 0,
-                boxShadow: "0 0 6px #0EA5E9",
+                boxShadow: "0 0 6px #C08552",
               }}
             />
           </div>

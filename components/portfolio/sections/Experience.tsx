@@ -33,13 +33,13 @@ const EXPERIENCE = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-24 bg-[#050810] grid-bg">
+    <section id="experience" className="relative py-24 bg-[#0A0705] grid-bg">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionTitle prefix="> work_history --verbose" />
 
         <div className="relative">
           {/* centre timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[rgba(14,165,233,0.5)] to-transparent" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[rgba(192,133,82,0.5)] to-transparent" />
 
           <div className="space-y-16 md:space-y-24">
             {EXPERIENCE.map((job, idx) => (
@@ -64,16 +64,16 @@ export default function Experience() {
                     job.side === "right" ? "md:mr-auto md:pr-10" : "md:ml-auto md:pl-10"
                   }`}
                 >
-                  <div className="hover-glow bg-[#0D1829] border border-[rgba(14,165,233,0.15)] rounded-xl p-6 md:p-8">
+                  <div className="hover-glow bg-[#1C110B] border border-[rgba(192,133,82,0.15)] rounded-xl p-6 md:p-8">
                     {/* header */}
                     <div className="mb-4">
-                      <span className="font-mono text-xs text-[#0EA5E9] tracking-wider uppercase">
+                      <span className="font-mono text-xs text-[#C08552] tracking-wider uppercase">
                         {job.period}
                       </span>
-                      <h3 className="font-display font-bold text-xl text-[#F0F4FF] mt-1">
+                      <h3 className="font-display font-bold text-xl text-[#F5EDE6] mt-1">
                         {job.title}
                       </h3>
-                      <p className="font-mono text-sm text-[#06B6D4] mt-0.5">
+                      <p className="font-mono text-sm text-[#D4A373] mt-0.5">
                         {job.company}
                       </p>
                     </div>
@@ -83,9 +83,9 @@ export default function Experience() {
                       {job.bullets.map((b, bi) => (
                         <li
                           key={bi}
-                          className="flex gap-3 text-sm text-[#8B9EC0] leading-relaxed"
+                          className="flex gap-3 text-sm text-[#A8927F] leading-relaxed"
                         >
-                          <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-[#0EA5E9] shadow-[0_0_6px_#0EA5E9]" />
+                          <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-[#C08552] shadow-[0_0_6px_#C08552]" />
                           {b}
                         </li>
                       ))}

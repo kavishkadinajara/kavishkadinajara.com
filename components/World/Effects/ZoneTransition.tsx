@@ -18,7 +18,7 @@ import { scrollStore } from "../scrollStore";
  */
 
 const TRANSITION_POINTS = [
-  { position: new THREE.Vector3(7.5, 3.5, -45), color: "#4444ff" },   // Tech→Sanctuary
+  { position: new THREE.Vector3(7.5, 3.5, -45), color: "#c08552" },   // Tech→Sanctuary
   { position: new THREE.Vector3(2.5, 4, -77.5), color: "#ffaa44" },   // Sanctuary→Arena
   { position: new THREE.Vector3(-2.5, 5.5, -112.5), color: "#44ff44" }, // Arena→Studio
   { position: new THREE.Vector3(2.5, 6, -147.5), color: "#ff44ff" },   // Studio→Kitchen

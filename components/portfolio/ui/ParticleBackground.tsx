@@ -70,7 +70,7 @@ export default function ParticleBackground() {
           if (dist < CONNECT_DIST) {
             const alpha = (1 - dist / CONNECT_DIST) * 0.12;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(14,165,233,${alpha})`;
+            ctx.strokeStyle = `rgba(192,133,82,${alpha})`;
             ctx.lineWidth   = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -106,7 +106,7 @@ export default function ParticleBackground() {
         ctx.rotate(p.rotation);
         ctx.globalAlpha     = p.opacity;
         ctx.font            = `${p.size}px 'JetBrains Mono', monospace`;
-        ctx.fillStyle       = "#0EA5E9";
+        ctx.fillStyle       = "#C08552";
         ctx.textAlign       = "center";
         ctx.textBaseline    = "middle";
         ctx.fillText(p.symbol, 0, 0);

@@ -141,7 +141,7 @@ function GridFloor({ position }: { position: [number, number, number] }) {
     <mesh position={position} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
       <planeGeometry args={[80, 80, 80, 80]} />
       <meshStandardMaterial
-        color="#050520"
+        color="#0a0604"
         wireframe
         emissive={NEON_PURPLE}
         emissiveIntensity={0.15}

@@ -128,12 +128,12 @@ function LogoChip({
           onMouseEnter={() => onHover(logo.name)}
           onMouseLeave={() => onHover(null)}
           aria-label={logo.name}
-          className="relative grid place-items-center w-10 h-10 md:w-11 md:h-11 rounded-full border bg-[rgba(13,24,41,0.75)] backdrop-blur-sm transition-all duration-200"
+          className="relative grid place-items-center w-10 h-10 md:w-11 md:h-11 rounded-full border bg-[rgba(28,17,11,0.75)] backdrop-blur-sm transition-all duration-200"
           style={{
-            borderColor: isHovered ? logo.color : "rgba(14,165,233,0.3)",
+            borderColor: isHovered ? logo.color : "rgba(192,133,82,0.3)",
             boxShadow: isHovered
               ? `0 0 18px ${logo.color}66, 0 0 32px ${logo.color}33`
-              : "0 0 10px rgba(14,165,233,0.15)",
+              : "0 0 10px rgba(192,133,82,0.15)",
             transform: isHovered ? "scale(1.18)" : "scale(1)",
           }}
         >
@@ -150,7 +150,7 @@ function LogoChip({
             <span
               className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-mono whitespace-nowrap"
               style={{
-                background: "rgba(5,8,16,0.95)",
+                background: "rgba(10,7,5,0.95)",
                 color: logo.color,
                 border: `1px solid ${logo.color}55`,
               }}

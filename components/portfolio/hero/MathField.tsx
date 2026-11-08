@@ -125,7 +125,7 @@ export default function MathField() {
         return (
           <span
             key={eq.id}
-            className={`absolute font-mono text-[#0EA5E9] pointer-events-none select-none ${eq.delayCls} ${eq.size}`}
+            className={`absolute font-mono text-[#C08552] pointer-events-none select-none ${eq.delayCls} ${eq.size}`}
             style={{
               left: eq.x,
               top: eq.y,

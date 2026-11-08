@@ -78,7 +78,7 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 bg-[#0A1020]">
+    <section id="projects" className="relative py-24 bg-[#140D09]">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionTitle prefix="$ ls ./projects --all" />
 

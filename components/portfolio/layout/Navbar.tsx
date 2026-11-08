@@ -57,7 +57,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
           scrolled || !isHome
-            ? "bg-[#0A1020]/95 backdrop-blur-md border-b border-[rgba(14,165,233,0.15)] shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
+            ? "bg-[#140D09]/95 backdrop-blur-md border-b border-[rgba(192,133,82,0.15)] shadow-[0_4px_20px_rgba(0,0,0,0.4)]"
             : "bg-transparent"
         }`}
       >
@@ -92,14 +92,14 @@ export default function Navbar() {
                   <button
                     onClick={() => handleAnchor(link.href)}
                     className={`relative font-body text-sm transition-colors duration-200 ${
-                      isActive ? "text-[#0EA5E9]" : "text-[#8B9EC0] hover:text-[#F0F4FF]"
+                      isActive ? "text-[#C08552]" : "text-[#A8927F] hover:text-[#F5EDE6]"
                     }`}
                   >
                     {link.label}
                     {isActive && (
                       <motion.span
                         layoutId="nav-indicator"
-                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#0EA5E9] rounded-full shadow-[0_0_6px_#0EA5E9]"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C08552] rounded-full shadow-[0_0_6px_#C08552]"
                       />
                     )}
                   </button>
@@ -115,14 +115,14 @@ export default function Navbar() {
               <Link
                 href="/blog"
                 className={`relative font-body text-sm transition-colors duration-200 ${
-                  isBlogActive ? "text-[#0EA5E9]" : "text-[#8B9EC0] hover:text-[#F0F4FF]"
+                  isBlogActive ? "text-[#C08552]" : "text-[#A8927F] hover:text-[#F5EDE6]"
                 }`}
               >
                 Blog
                 {isBlogActive && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#0EA5E9] rounded-full shadow-[0_0_6px_#0EA5E9]"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C08552] rounded-full shadow-[0_0_6px_#C08552]"
                   />
                 )}
               </Link>
@@ -136,14 +136,14 @@ export default function Navbar() {
               <button
                 onClick={() => handleAnchor("#contact")}
                 className={`relative font-body text-sm transition-colors duration-200 ${
-                  isHome && activeSection === "contact" ? "text-[#0EA5E9]" : "text-[#8B9EC0] hover:text-[#F0F4FF]"
+                  isHome && activeSection === "contact" ? "text-[#C08552]" : "text-[#A8927F] hover:text-[#F5EDE6]"
                 }`}
               >
                 Contact
                 {isHome && activeSection === "contact" && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#0EA5E9] rounded-full shadow-[0_0_6px_#0EA5E9]"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#C08552] rounded-full shadow-[0_0_6px_#C08552]"
                   />
                 )}
               </button>
@@ -154,7 +154,7 @@ export default function Navbar() {
           <button
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}
-            className="md:hidden text-[#8B9EC0] hover:text-[#F0F4FF] transition-colors z-[9999]"
+            className="md:hidden text-[#A8927F] hover:text-[#F5EDE6] transition-colors z-[9999]"
           >
             {mobileOpen ? <IconX size={22} /> : <IconMenu2 size={22} />}
           </button>
@@ -169,7 +169,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-0 top-16 z-[9998] md:hidden bg-[#050810] overflow-y-auto"
+            className="fixed inset-0 top-16 z-[9998] md:hidden bg-[#0A0705] overflow-y-auto"
           >
             <ul className="flex flex-col px-6 pt-6 gap-2">
               {ANCHOR_LINKS.map((link, i) => {
@@ -185,8 +185,8 @@ export default function Navbar() {
                       onClick={() => handleAnchor(link.href)}
                       className={`w-full text-left py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                         isActive
-                          ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
-                          : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
+                          ? "text-[#C08552] bg-[rgba(192,133,82,0.1)] border-[rgba(192,133,82,0.2)]"
+                          : "text-[#D9C9BA] hover:text-[#F5EDE6] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                       }`}
                     >
                       {link.label}
@@ -205,8 +205,8 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={`block py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                     isBlogActive
-                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
-                      : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
+                      ? "text-[#C08552] bg-[rgba(192,133,82,0.1)] border-[rgba(192,133,82,0.2)]"
+                      : "text-[#D9C9BA] hover:text-[#F5EDE6] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                   }`}
                 >
                   Blog
@@ -222,8 +222,8 @@ export default function Navbar() {
                   onClick={() => handleAnchor("#contact")}
                   className={`w-full text-left py-4 px-4 font-body text-base rounded-xl transition-colors border ${
                     isHome && activeSection === "contact"
-                      ? "text-[#0EA5E9] bg-[rgba(14,165,233,0.1)] border-[rgba(14,165,233,0.2)]"
-                      : "text-[#C8D4F0] hover:text-[#F0F4FF] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
+                      ? "text-[#C08552] bg-[rgba(192,133,82,0.1)] border-[rgba(192,133,82,0.2)]"
+                      : "text-[#D9C9BA] hover:text-[#F5EDE6] hover:bg-[rgba(255,255,255,0.04)] border-transparent"
                   }`}
                 >
                   Contact

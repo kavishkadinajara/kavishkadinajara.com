@@ -58,7 +58,7 @@ export default function TableOfContents({ content }: { content: string }) {
 
   return (
     <nav className="sticky top-24">
-      <span className="font-mono text-xs text-[#8B9EC0] tracking-widest uppercase mb-4 block">
+      <span className="font-mono text-xs text-[#A8927F] tracking-widest uppercase mb-4 block">
         {"// contents"}
       </span>
       <ul className="space-y-1">
@@ -70,12 +70,12 @@ export default function TableOfContents({ content }: { content: string }) {
                 onClick={() => scrollTo(id)}
                 className={`text-left w-full font-mono text-xs leading-relaxed py-1 transition-colors duration-150 ${
                   isActive
-                    ? "text-[#0EA5E9]"
-                    : "text-[#8B9EC0] hover:text-[#F0F4FF]"
+                    ? "text-[#C08552]"
+                    : "text-[#A8927F] hover:text-[#F5EDE6]"
                 }`}
               >
                 {isActive && (
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#0EA5E9] mr-2 shadow-[0_0_6px_#0EA5E9] align-middle" />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#C08552] mr-2 shadow-[0_0_6px_#C08552] align-middle" />
                 )}
                 {text}
               </button>
